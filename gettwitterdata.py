@@ -53,7 +53,8 @@ def get_all_tweets(screen_name):
 	#transform the tweepy tweets into a 2D array that will populate the csv	
 	outtweets = [[tweet.id_str, tweet.created_at, tweet.full_text.encode("utf-8")] for tweet in alltweets]
 	
-	#write the csv	
+	#write the csv
+	screen_name=screen_name[1:]	
 	with open('%s_tweets.csv' % screen_name, 'wb') as f:
 		writer = csv.writer(f)
 		writer.writerow(["id","created_at","text"])
