@@ -9,6 +9,7 @@ import nltk
 from nltk.tokenize import word_tokenize
 from nltk.stem import PorterStemmer, WordNetLemmatizer
 from nltk.corpus import stopwords
+import pickle
 
 
 '''
@@ -49,10 +50,10 @@ def preprocessTweets (tweetdict):
 if __name__=="__main__":
 
 	# for testing
-	filename="data/@BarackObama_tweets.csv"
-	
+	#filename="data/@BarackObama_tweets.csv"
+	filename=''
 	parser=argparse.ArgumentParser()
-	parser.add_argument('filename',action='store', help="Complete path of .csv file")
+	parser.add_argument('filename', action='store', help="Complete path of .csv file")
 	args=parser.parse_args() 
 		
 	if not filename:
@@ -60,5 +61,10 @@ if __name__=="__main__":
 
 	# dictionary storing all values 
 	tweetdict = createDictFromFile(filename)	
+	# preprocess tweets
 	tweetdict = preprocessTweets(tweetdict)
+	# remove filetype
+	filename=re.split('\.',filename)[0]
+	# store as pickle file
+	pickle.dump(tweetdict, open(filename+"_dict.p", 'wb'))
 	
