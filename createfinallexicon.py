@@ -1,13 +1,13 @@
-import re
-import argparse
-import nltk
-from nltk.tokenize import word_tokenize
+'''
+To create tsv formats for Plutchik's model [word, anger, anticipation, disgust, fear, joy, sadness, surprise, trust]
+And ANEW model [word, valence, arousal, dominance]
+'''
 
-# for testing
+# Original file locations
 nrcfile="lexicon/nrc/NRC-Emotion-Lexicon-Wordlevel-v0.92.txt"
 anewfile="lexicon/anew/ANEW2010All.txt"
 
-#created newnrc
+#create for nrc
 nrc=[]	
 with open(nrcfile) as f:
 	emotions=[]
@@ -29,7 +29,7 @@ with open("lexicon/nrc/newnrc.txt",'w') as f:
 	for line in nrc:
 		f.write("\n"+str(line[0])+"\t"+'\t'.join(line[1]))
 
-#create anew
+#create for anew
 
 anew=[]
 
