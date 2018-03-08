@@ -39,7 +39,7 @@ def preprocessTweets (tweetdict):
 	for tweetid in tweetdict:
 		wordtokens=word_tokenize(tweetdict[tweetid]['text'])
 		#remove non alphabetical + http
-		wordtokens[:]=[word for word in wordtokens if word.isalpha() and word!='http']
+		wordtokens[:]=[word for word in wordtokens if word.isalpha() and word!='http' and word!='https']
 		#remove stopwords
 		wordtokens[:]=[word.lower() for word in wordtokens if word.lower() not in stops]
 		#stemmer = PorterStemmer()
