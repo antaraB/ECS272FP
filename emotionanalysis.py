@@ -26,16 +26,5 @@ if __name__=="__main__":
 	# dictionary storing all values 
 	tweetdata=pickle.load(open(filename))
 
-	# stem and tokenize words
-
-	stemmer = PorterStemmer()
-	lemmatizer = WordLemmatizer()
-	for tweet in tweetdata:
-		#initializing plutchik vector
-		pvec=[0]*8 
-		pcount =[0]*8
-		#tokenizing
-		#words=tweetdata[tweet]['text'].split(' ')
-		tokens=word_tokenize(tweetdata[]tweet['text'])
-		for t in tokens:
-
+	
+	
