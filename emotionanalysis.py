@@ -13,11 +13,11 @@ import pickle
 
 if __name__=="__main__":
 	# for testing
-	filename="data/BarackObama_tweets_dict.p"
+	filename="data/@BarackObama_tweets_dict.p"
 	#filename=''
 
 	parser=argparse.ArgumentParser()
-	parser.add_argument('filename',action='store', help="Complete path of .csv file")
+	parser.add_argument('filename',action='store', help="Complete path of pickled (preprocessed tweets) file")
 	args=parser.parse_args() 
 		
 	if not filename:
@@ -26,5 +26,7 @@ if __name__=="__main__":
 	# dictionary storing all values 
 	tweetdata=pickle.load(open(filename))
 
-	
+	for tweetid in tweetdata:
+		for word in tweetdata[tweetid]['words']:
+			
 	
