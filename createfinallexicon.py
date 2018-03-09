@@ -24,10 +24,27 @@ with open(nrcfile) as f:
 			if line[1] not in ['positive', 'negative']:
 					emotions.append(line[2])
 
+## untested begin
+for line in nrc:
+	if sum([int(str) for str in line[1:]]) == 0:
+		nrc.remove(line)
+## untested end
+
 with open("lexicon/nrc/newnrc.csv",'w') as f:
 	f.write("word,anger,anticipation,disgust,fear,joy,sadness,surprise,trust")
 	for line in nrc:
 		f.write("\n"+str(line[0])+","+','.join(line[1]))
+
+'''
+for line in nrclexicon[1:]:
+	if sum([int(str) for str in line[1:]]) == 0:
+		nrclexicon.remove(line)
+
+with open("lexicon/nrc/newnrc.csv",'w') as f:
+	writer=csv.writer(f)
+	for line in nrclexicon:
+		writer.writerow(line)
+'''
 
 #create for anew
 
