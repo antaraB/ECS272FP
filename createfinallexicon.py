@@ -24,10 +24,10 @@ with open(nrcfile) as f:
 			if line[1] not in ['positive', 'negative']:
 					emotions.append(line[2])
 
-with open("lexicon/nrc/newnrc.txt",'w') as f:
-	f.write("word\tanger\tanticipation\tdisgust\tfear\tjoy\tsadness\tsurprise\ttrust\n")
+with open("lexicon/nrc/newnrc.csv",'w') as f:
+	f.write("word,anger,anticipation,disgust,fear,joy,sadness,surprise,trust")
 	for line in nrc:
-		f.write("\n"+str(line[0])+"\t"+'\t'.join(line[1]))
+		f.write("\n"+str(line[0])+","+','.join(line[1]))
 
 #create for anew
 
@@ -40,7 +40,7 @@ with open(anewfile) as f:
 		if len(line) is 8:
 			anew.append([line[0],line[2],line[4],line[6]])
 
-with open("lexicon/anew/newanew2010.txt",'w') as f:
-	f.write("word\tvalence\tarousal\tdominance\n")
+with open("lexicon/anew/newanew2010.csv",'w') as f:
+	f.write("word,valence,arousal,dominance\n")
 	for line in anew:
-		f.write("\n"+'\t'.join(line))
+		f.write("\n"+','.join(line))
