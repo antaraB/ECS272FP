@@ -79,7 +79,7 @@ if __name__=="__main__":
 
 	parser=argparse.ArgumentParser()
 	parser.add_argument('filename',action='store', help="Complete path of pickled (preprocessed tweets) file")
-	parser.add_argument('-s','--stemmer', choices=['snowball','porter'], , default='snowball', help=" Select stemmer to be used. Choices: snowball or porter")
+	parser.add_argument('-s','--stemmer', choices=['snowball','porter'], default='snowball', help=" Select stemmer to be used. Choices: snowball or porter")
 	args=parser.parse_args()
 
 	if not filename:
@@ -112,6 +112,8 @@ if __name__=="__main__":
 	# vad
 	affexp=affexpdetection(tweetdata, affexp, 'vad', 3, anewlexicon, 1)
 
+	filename=filename[:len(filename)-2]
+	pickle.dump(affexp, open(filename+"_affexp.p", 'wb'))
 		# affexp['tweetID']['word']={vad':[v,a,d], 'plutchik'=[anger,anticipation,disgust,fear,joy,sadness,surprise,trust]}
 '''	for tweetid in tweetdata:
 		affexp[tweetid]={}
