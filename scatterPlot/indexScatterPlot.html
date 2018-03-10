@@ -64,7 +64,7 @@ d3.json("data.json", function(error, data) {
   if (error) throw error;
 
   data.forEach(function(d) {
-      d.consequence = +d.consequence;
+      d.value2 = +d.value2;
       d.value = +d.value;
   });
 
@@ -72,7 +72,7 @@ d3.json("data.json", function(error, data) {
     .data(data)
     .enter()
     .append("g")
-    .attr("transform",function(d) { return "translate("+x(d.consequence)+","+y(d.value)+")"; })
+    .attr("transform",function(d) { return "translate("+x(d.value2)+","+y(d.value)+")"; })
     .attr("id", function (d,i) { return "chart"+i; })
     .append("g").attr("class","pies");
   
