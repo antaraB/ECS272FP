@@ -23,7 +23,7 @@ def match (word, lexicon, stemmer):
 
 def affexpdetection(tweetdata, affexp, modeltype, modelcount, lexicon, to_print):
 	if to_print:
-		count=0
+		count=1
 		totalcount=float(len(tweetdata))
 	for tweetid in tweetdata:
 		if to_print:
