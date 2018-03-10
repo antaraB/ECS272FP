@@ -1,15 +1,16 @@
 '''
 (1) Executes 4.2.1 of paper
 (2) Creates dict: affexp[tweetid]=[{word: 'textofword', vad=[], plutchik=[]},]
+
+## issues:
+Doesn't take into account user's choice of stemmer
+No WordNet matching
 '''
 import re
 import argparse
-#import nltk
-#from nltk.tokenize import word_tokenize
 from nltk.stem import PorterStemmer, SnowballStemmer, WordNetLemmatizer
 import pickle
 import csv
-#from preprocess import preprocessTweets, createDictFromFile
 
 def match (word, lexicon, stemmer):
 	val=[]
@@ -26,7 +27,7 @@ def affexpdetection(tweetdata, affexp, modeltype, modelcount, lexicon, to_print)
 		totalcount=float(len(tweetdata))
 	for tweetid in tweetdata:
 		if to_print:
-			print "\nTweetcount:{} of {} -- {}%".format(count,totalcount,(count/totalcount))
+			print "\nTweetcount:{} of {} -- {}%".format(count,totalcount,(count*100/totalcount))
 			count+=1
 		if tweetid not in affexp:
 			affexp[tweetid]={}
@@ -80,10 +81,12 @@ if __name__=="__main__":
 	parser=argparse.ArgumentParser()
 	parser.add_argument('filename',action='store', help="Complete path of pickled (preprocessed tweets) file")
 	parser.add_argument('-s','--stemmer', choices=['snowball','porter'], default='snowball', help=" Select stemmer to be used. Choices: snowball or porter")
+	parser.add_argument('-v','--verbose', action='store_true', help=" Will print values at intermediate steps ")
 	args=parser.parse_args()
 
 	if not filename:
 		filename=args.filename
+	to_print=args.verbose
 
 
 	'''
@@ -106,6 +109,7 @@ if __name__=="__main__":
 	lem = WordNetLemmatizer()
 
 
+	# affexp['tweetID']['word']={vad':[v, a, d], 'plutchik'=[anger, anticipation, disgust, fear, joy, sadness, surprise, trust]}
 	affexp={}
 	# plutchik
 	affexp=affexpdetection(tweetdata, affexp, 'plutchik', 8, nrclexicon, 1)
@@ -153,10 +157,6 @@ if __name__=="__main__":
 		if pcount:
 			pval=[x/pcount for x in pval]
 			affexp[tweetid]['plutchik']=pval'''
-
-# affexp['tweetID']['word']={vad':[v, a, d], 'plutchik'=[anger, anticipation, disgust, fear, joy, sadness, surprise, trust]}
-
-
 
 '''
 nrcfile="lexicon/nrc/newnrc.csv"
