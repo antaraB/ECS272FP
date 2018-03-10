@@ -1,0 +1,113 @@
+<html>
+<head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.10.0/d3.min.js"></script>
+
+</head>
+<body>
+
+    <script>
+        var data = [
+
+            {x: 170, y: 160, radius: 20, slices: [3, 4]},
+            {x: 180, y: 40, radius: 30, slices: [ 6, 7]},
+            {x: 50, y: 80, radius: 20, slices: [5, 3]},
+            {x: 50, y: 180, radius: 40, slices: [6, 3]}
+        ]
+
+        var width = 500;
+        var height = 300;
+        var margin = {left: 30, right: 10, top: 30, bottom: 30}
+
+        var xScale = d3.scaleLinear()
+                .range([0, width - margin.left - margin.right])
+                .domain([0, d3.max(data, function (d) {
+                        return d.x + 20
+                    })]);
+
+        var yScale = d3.scaleLinear()
+                .range([height - margin.top - margin.bottom, 0])
+                .domain([0, d3.max(data, function (d) {
+                        return d.y + 20
+                    })]);
+        xMid=d3.max(xScale.domain())/2;
+        yMid=d3.max(yScale.domain())/2;
+        console.log(xMid,yMid)
+
+
+        var svg = d3.select("body").append("svg")
+                .attr("width", width)
+                .attr("height", height);
+
+        var g = svg.append("g")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+
+        var xAxis = d3.axisBottom(xScale);
+
+        g.append("g")
+                .attr("transform", "translate(0," + (height - margin.bottom - margin.top) + ")")
+                .call(xAxis);
+
+        var yAxis = d3.axisLeft(yScale);
+
+        g.append("g")
+                .call(yAxis);
+        var lineX= g.append("line")
+      .attr("x1", 0)
+      .attr("x2", 500)
+      .attr("y1", yMid+20)
+      .attr("y2", yMid+20)
+      .attr("stroke-width", 1)
+      .attr("stroke", "black")
+      .attr("stroke-dasharray", "7,7");
+        var liney= g.append("line")
+      .attr("x1", xMid+130)
+      .attr("x2", xMid+130)
+      .attr("y1", -10)
+      .attr("y2", 245)
+      .attr("stroke-width", 1)
+      .attr("stroke", "black")
+      .attr("stroke-dasharray", "7,7");
+
+        var arc = d3.arc()
+                .innerRadius(0)
+                .outerRadius(50);
+
+        var pie = d3.pie()
+                .sort(null)
+                .value(function (d) {
+                    return d;
+                });
+
+        var colors = d3.schemeCategory20;
+        var color = ["steelblue","orange","green","red"]
+        var pies = g.selectAll(null)
+                .data(data)
+                .enter()
+                .append("g")
+                .property("radius", function (d) {
+                    return d.radius;
+                })
+                .attr("transform", function (d) {
+                    return "translate(" + xScale(d.x) + "," + yScale(d.y) + ")";
+                })
+                .attr("fill", function (d, i) {
+                    return color[i];
+                });
+
+        pies.selectAll()
+                .data(function (d) {
+                    return pie(d.slices);
+                })
+                .enter()
+                .append("path")
+                .attr("d", function (d) {
+                    var radius = d3.select(this.parentNode).property("radius");
+                    arc.outerRadius(radius);
+                    return arc(d)
+                })
+                .attr("opacity",function(d,i){ return 1-i*0.7; });
+    </script>
+</body>
