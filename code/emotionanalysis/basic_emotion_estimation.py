@@ -45,7 +45,7 @@ def createBasicEmotionMatrix(affexp, basicemotion, to_print):
 		for i in xrange(8):
 			matrix[i]=[x/num_words for x in matrix[i]]
 		if to_print:
-			print "word: {} Matrix: {}".format(word,matrix)
+			print "word: {} Matrix: {}".format(word.encode('utf-8'),matrix)
 		basicemotion[tweetid]=matrix	
 	return basicemotion
 
