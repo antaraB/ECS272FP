@@ -28,7 +28,7 @@ def affexpdetection(tweetdata, affexp, modeltype, modelcount, lexicon, to_print)
 		totalcount=float(len(tweetdata))
 	for tweetid in tweetdata:
 		if to_print:
-			print "\nTweetcount: {} of {} -- {}%".format(count,totalcount,(count*100/totalcount))
+			print "\n{}: Tweetcount: {} of {} -- {}%".format(modeltype,count,totalcount,(count*100/totalcount))
 			count+=1
 		if tweetid not in affexp:
 			affexp[tweetid]={}
