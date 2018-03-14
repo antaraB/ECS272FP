@@ -6,6 +6,7 @@ Executes 4.2.2 of paper:
 import argparse
 import pickle
 import csv
+import re
 
 def cleanEmotionWords (affexp, to_print):
 	newdict={}
@@ -14,7 +15,7 @@ def cleanEmotionWords (affexp, to_print):
 		totalcount=float(len(affexp))
 	for tweetid in affexp:
 		if to_print:
-			print "\nTweetcount:{} of {} -- {}%: tweetID: {}".format(count,totalcount,(count*100/totalcount), tweetid)
+			print "\ncleanEmotionWords(): Tweetcount:{} of {} -- {}%: tweetID: {}".format(count,totalcount,(count*100/totalcount), tweetid)
 			count+=1
 		for word in affexp[tweetid]:
 			if len(affexp[tweetid][word])==2:
@@ -25,14 +26,13 @@ def cleanEmotionWords (affexp, to_print):
 			print "len(original)={}, len(new)={}".format(len(affexp[tweetid]),len(newdict[tweetid]))
 	return newdict
 	
-
 def createBasicEmotionMatrix(affexp, basicemotion, to_print):
 	if to_print:
 		count=1
 		totalcount=float(len(affexp))
 	for tweetid in affexp:
 		if to_print:
-			print "\nTweetcount:{} of {} -- {}% -- {}".format(count,totalcount,(count*100/totalcount),tweetid)
+			print "\ncreateBasicEmotionMatrix(): Tweetcount:{} of {} -- {}% -- {}".format(count,totalcount,(count*100/totalcount),tweetid)
 			count+=1
 		matrix=[[0]*4 for n in range(8)]
 		num_words=float(len(affexp[tweetid]))
@@ -44,41 +44,36 @@ def createBasicEmotionMatrix(affexp, basicemotion, to_print):
 					matrix[i][1:]=[x+float(y) for x,y in zip(matrix[i][1:],affexp[tweetid][word]['vad'])]
 		for i in xrange(8):
 			matrix[i]=[x/num_words for x in matrix[i]]
-			if matrix[i][0]>1:
-				print "Weird"
-				break
 		if to_print:
 			print "word: {} Matrix: {}".format(word,matrix)
 		basicemotion[tweetid]=matrix	
 	return basicemotion
 
 if __name__=="__main__":
+
 	# for testing
-	filename="data/pickle/@BarackObama_tweets_dict_affexp.p"
+	# filename="data/pickle/@BarackObama_affexp.p"
 	filename=''
 
 	parser=argparse.ArgumentParser()
-	parser.add_argument('filename',action='store', help="Complete path of pickled (preprocessed tweets) file")
-	parser.add_argument('-s','--stemmer', choices=['snowball','porter'], default='snowball', help=" Select stemmer to be used. Choices: snowball or porter")
+	parser.add_argument('filename',action='store', help="Complete path of pickled (processed tweets) file")
+	parser.add_argument('-v','--verbose', action='store_true', help=" Will print values at intermediate steps ")
 	args=parser.parse_args()
 
 	if not filename:
 		filename=args.filename
-
-
-	'''
-	add support for cmd line stemmer
-	'''
+	to_print=args.verbose
 
 	# dictionary storing all values
 	affexp=pickle.load(open(filename))
 
-	# basicemotion['tweetID']=[[c1,v1,a1,d1],[c2,v2,a2,d2],[...],...,[c8,v8,a8,d8]]
-	affexp=cleanEmotionWords(affexp,1)
-basicemotion={}
+	# remove words if vad or plutchik values are missing
+	affexp=cleanEmotionWords(affexp,to_print)
 
-basicemotion=createBasicEmotionMatrix(affexp, basicemotion, 1)
+	# basicemotion['tweetID']=[[c1,v1,a1,d1],[c2,v2,a2,d2],[...],...,[c8,v8,a8,d8]]
+	basicemotion={}
+	basicemotion=createBasicEmotionMatrix(affexp, basicemotion, to_print)
 	
-	filename=filename[:len(filename)-9]
+	filename=re.split('_',filename)[0]
 	pickle.dump(basicemotion, open(filename+"_basicemotion.p", 'wb'))
-		# affexp['tweetID']['word']={vad':[v,a,d], 'plutchik'=[anger,anticipation,disgust,fear,joy,sadness,surprise,trust]}
+		
