@@ -1,7 +1,5 @@
 '''
-(1) Remove entries if either vad or plutchik is missing 
-Executes 4.2.2 of paper:
-(2) Creates dict: basicemotion[tweetid][[c1,v1,a1,d1],[c2,v2,a2,d2],[...],...,[c8,v8,a8,d8]]
+Form clusters from tweets 
 '''
 
 from datetime import datetime
@@ -10,6 +8,8 @@ import argparse
 import pickle
 import csv
 import json
+
+dateformat='%Y-%m-%d %H:%M:%S'
 
 def initcluster ():
 	cluster={}
@@ -72,12 +72,11 @@ parser.add_argument('-c', '--csvfilename',action='store', help="Complete path of
 parser.add_argument('-p','--picklefile',action='store', help="Complete path of pickled (preprocessed tweets) file")
 parser.add_argument('-s','--stemmer', choices=['snowball','porter'], default='snowball', help=" Select stemmer to be used. Choices: snowball or porter")
 parser.add_argument('-v','--verbose', action='store_true', help=" Will print values at intermediate steps ")
-parser.add_argument('-vt','--valence', default=6.0, help=" Value for valence threshold. Default is 1.5 ")
-parser.add_argument('-at','--arousal', default=6.7, help=" Value for valence threshold. Default is 2.7 ")
-parser.add_argument('-dt','--dominance', default=6.3, help=" Value for valence threshold. Default is 2 ")
+parser.add_argument('-vt','--valence', default=4.0, help=" Value for valence threshold. Default is 1.5 ")
+parser.add_argument('-at','--arousal', default=4.7, help=" Value for valence threshold. Default is 2.7 ")
+parser.add_argument('-dt','--dominance', default=4.3, help=" Value for valence threshold. Default is 2 ")
 
 args=parser.parse_args()
-
 # if not csvfilename:
 csvfilename=args.csvfilename
 picklefilename=args.picklefile
@@ -86,7 +85,7 @@ vt=args.valence
 at=args.arousal
 dt=args.dominance
 
-dateformat='%Y-%m-%d %H:%M:%S'
+
 # Parse file contents to data[]
 if not csvfilename and not picklefilename:
 	print "Error: Please specify filename"
@@ -124,7 +123,7 @@ for row in data:
 		matrix=basicemotion[tweetid]
 		if sum(map(sum,matrix))==0:
 			if to_print:
-				print "{} has been skipped for zero vals".format(tweetid)
+				print "{} has been skipped due to zero vals".format(tweetid)
 			continue
 	else :
 		continue
@@ -166,5 +165,6 @@ for row in data:
 				
 if to_print:
 	print "{} total clusters created".format(count)
-with open ('sample.json','w') as f:
+
+with open ('data/json/'+twitterid+'.json','w') as f:
 	json.dump(clusters, f)
