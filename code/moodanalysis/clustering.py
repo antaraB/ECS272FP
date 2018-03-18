@@ -158,6 +158,9 @@ for row in data:
 		# if tweet fits in cluster, add it
 		if addtofinal:
 			cluster=addtocluster(cluster, matrix, tweetid, tweetdate)
+		# if cluster length is too small, add on to it
+		elif len(cluster['tweets'])<4:
+			continue
 		# if it doesn't, create new cluster
 		else :
 			cluster=prepforappend(cluster)
