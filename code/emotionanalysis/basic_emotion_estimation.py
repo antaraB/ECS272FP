@@ -19,9 +19,10 @@ def cleanEmotionWords (affexp, to_print):
 			count+=1
 		for word in affexp[tweetid]:
 			if len(affexp[tweetid][word])==2:
-				if tweetid not in newdict:
-					newdict[tweetid]={} 
-				newdict[tweetid][word]=affexp[tweetid][word]
+				if sum(affexp[tweetid][word]['vad'])>0 and sum(affexp[tweetid][word]['plutchik'])>0: 
+					if tweetid not in newdict:
+						newdict[tweetid]={} 
+					newdict[tweetid][word]=affexp[tweetid][word]
 		if tweetid in newdict:
 			print "len(original)={}, len(new)={}".format(len(affexp[tweetid]),len(newdict[tweetid]))
 	return newdict

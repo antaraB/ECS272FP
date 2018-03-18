@@ -69,6 +69,9 @@ def affexpdetection(tweetdata, affexp, modeltype, modelcount, lexicon, to_print)
 					# check with anew? Or wordnet?
 				if modeltype=='plutchik':
 					values=[int(x) for x in values]
+				elif modeltype=='vad':
+					values=[float(x) for x in values]
+					
 				if word not in affexp[tweetid]:
 					affexp[tweetid][word]={}
 				affexp[tweetid][word][modeltype]=values
