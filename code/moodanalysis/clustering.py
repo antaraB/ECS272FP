@@ -85,6 +85,8 @@ vt=args.valence
 at=args.arousal
 dt=args.dominance
 
+if to_print:
+	print "Valence threshold is {}\nArousal threshold is {}\nDominance threshold is {}".format(vt,at,dt)
 
 # Parse file contents to data[]
 if not csvfilename and not picklefilename:
