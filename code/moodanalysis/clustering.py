@@ -87,15 +87,19 @@ at=args.arousal
 dt=args.dominance
 
 dateformat='%Y-%m-%d %H:%M:%S'
+# Parse file contents to data[]
+if not csvfilename and not picklefilename:
+	print "Error: Please specify filename"
+	exit()
 
-if csvfilename: 
+elif csvfilename: 
 	with open(csvfilename) as f:
 		csvfile=list(csv.reader(f))
 	csvfile=csvfile[1:]
 	data=sorted(csvfile, key=lambda row: datetime.strptime(row[1],dateformat))
 	twitterid=re.findall('\@[^_]+',csvfilename)[0]
 
-if picklefilename:
+elif picklefilename:
 	tweetdict=pickle.load(open(picklefilename))
 	data=[]
 	for tweetid in tweetdict:
@@ -104,7 +108,6 @@ if picklefilename:
 	data=sorted(data, key=lambda row: datetime.strptime(row[1],dateformat))
 	twitterid=re.findall('\@[^_]+',picklefilename)[0]
 
-# emotionfilename=re.findall('\@.+\_',csvfilename)[0]
 emotionfilename='data/pickle/'+twitterid+'_basicemotion.p'
 basicemotion=pickle.load(open(emotionfilename))
 
