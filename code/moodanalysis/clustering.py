@@ -94,6 +94,8 @@ if not csvfilename and not picklefilename:
 	exit()
 
 elif csvfilename: 
+	if to_print:
+		print "CSV file chosen: {}".format(csvfilename)
 	with open(csvfilename) as f:
 		csvfile=list(csv.reader(f))
 	csvfile=csvfile[1:]
@@ -101,6 +103,8 @@ elif csvfilename:
 	twitterid=re.findall('\@[^_]+',csvfilename)[0]
 
 elif picklefilename:
+	if to_print:
+		print "Pickled file chosen: {}".format(picklefilename)
 	tweetdict=pickle.load(open(picklefilename))
 	data=[]
 	for tweetid in tweetdict:
