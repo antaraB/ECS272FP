@@ -130,6 +130,7 @@
     .attr("height", height)
     .attr("fill", "steelblue")
     .on("mouseover", function(m) {
+      // var divtooltip
       //console.log("Mouse hovering on rect");
       divtooltip.transition()
                 .duration(500)  
@@ -139,33 +140,18 @@
                 //.style("display", "block")
                 .style("visibility", "visible")
                 .style("opacity", .9);
-                var html;   
-                //console.log("LENGHTH",d);
-                var sum = 0;
-
-                    html = '<p class="header">emtweetGrant total number of tweets for all companies : <span class="clickstylebubble">' + 'some ' + '</p>';
-
-
-               
-                html = html + '<h3></h3>'
-
-            divtooltip .html(html) 
-
+              divtooltip.html(drawtagcloud("hello.json",0))
                 .style("left", (d3.event.pageX) + "px")          
-                .style("top", (d3.event.pageY - 28) + "px");
-      //TO DO : show the current date 
-      //TO DO : show the tooltip with work cloud
+        .style("top", (d3.event.pageY - 28) + "px");
     }).on("mouseout", function(m) {
       //console.log("Mouse hovering out on rect");
       divtooltip.transition()        
-                .duration(500)   
-                .style("visibility", "hidden")   
-                .style("opacity", 0);
-      //TO DO : hide the current date 
-      //TO DO : hide the tooltip with work cloud
+        .duration(500)   
+        .style("visibility", "hidden")   
+        .style("opacity", 0);
+      divtooltip.selectAll("*").remove()  
     }).on("click", function(n, m) {
       console.log("clickeddd clusterid",m);
-      // console.log(n,m);
       getScatterplotData(m);
       getRawTweetData(m);
     });
@@ -357,10 +343,10 @@
         .duration(200)  
         .style("visibility", "visible")
         .style("opacity", .9);
-        var html='';   
-        html='<p><em>'+keys[d.em_index]+'</em></p><p><strong>valence</strong> ' + Number(d.detail_v[d.em_index]/d.detail_v.reduce(function(a,b){return a+b;},0)).toFixed(2) + '</p> <p><strong>arousal</strong> ' + Number(d.detail_a[d.em_index]/d.detail_a.reduce(function(a,b){return a+b;},0)).toFixed(2) + '</p> <p><strong>dominance</strong> ' + Number(d.detail_d[d.em_index]/d.detail_d.reduce(function(a,b){return a+b;},0)).toFixed(2) + '</p> <p><strong>strength</strong> ' +Number(d.strength).toFixed(2) + '%';
-        html = html + '<h3></h3>'
-        divtooltip .html(html) 
+        var htmltext='';   
+        htmltext='<p><em>'+keys[d.em_index]+'</em></p><p><strong>valence</strong> ' + Number(d.detail_v[d.em_index]/d.detail_v.reduce(function(a,b){return a+b;},0)).toFixed(2) + '</p> <p><strong>arousal</strong> ' + Number(d.detail_a[d.em_index]/d.detail_a.reduce(function(a,b){return a+b;},0)).toFixed(2) + '</p> <p><strong>dominance</strong> ' + Number(d.detail_d[d.em_index]/d.detail_d.reduce(function(a,b){return a+b;},0)).toFixed(2) + '</p> <p><strong>strength</strong> ' +Number(d.strength).toFixed(2) + '%';
+        htmltext = htmltext + '<h3></h3>'
+        divtooltip .html(htmltext) 
         // .style("fill", function(d){console.log("fill",d); return emotioncolors[d.em_index];})
         .style("left", (d3.event.pageX) + "px")          
         .style("top", (d3.event.pageY - 28) + "px");
@@ -375,6 +361,8 @@
       .duration(500)   
       .style("visibility", "hidden")   
       .style("opacity", 0);
+      divtooltip.selectAll("*").remove();
+      // .removeAll();
       }
       
       //TO DO : hide the current date 
