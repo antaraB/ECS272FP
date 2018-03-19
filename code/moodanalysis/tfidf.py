@@ -76,6 +76,5 @@ for i in xrange(clusterlen):
 		print "TF-IDF calculated for cluster {} of {} : {} %".format(i+1, clusterlen, (i+1)*100/float(clusterlen))
 
 
-
 with open ('data/json/'+twitterid+'_tfidf.json','w') as f:
 	json.dump(clusters, f)

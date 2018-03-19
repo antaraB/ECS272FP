@@ -10,8 +10,8 @@ import pickle
 
 
 # for testing
-filename='data/json/@BarackObama_tfidf.json'
-# filename=''
+# filename='data/json/@BarackObama_tfidf.json'
+filename=''
 
 parser=argparse.ArgumentParser()
 parser.add_argument('filename',action='store', help="Complete path of json file")
@@ -25,22 +25,27 @@ to_print=args.verbose
 clusters=json.load(open(filename))
 clusterlen= len(clusters)
 twitterid=re.findall('\@[^\.]+',filename)[0]
-
+plutchik=['anger', 'anticipation', 'disgust', 'fear', 'joy', 'sadness', 'surprise', 'trust']
 
 for i in xrange(clusterlen):
+	clusters[i]['clusterid']=i
 	maxval=max(clusters[i]['moodcount'])
 	minval=min(clusters[i]['moodcount'])
 	avg=(maxval+minval)/2
+	avg+=1
 	count =len([x for x in clusters[i]['moodcount']  if x>avg ])
-	if count>4:
-		avg+=1
+	if count==0:
+		avg-=1
 
 	if to_print:
 		print "Max: {}\nMin: {}\nAvg: {}".format(maxval,minval,avg)
-	clusters[i]['mood_score']=[x if x>avg else 0 for x in clusters[i]['moodcount']]
+	mood_score=[x if x>avg else 0 for x in clusters[i]['moodcount']]
 	if to_print:
-		print clusters[i]['mood_score']
-	clusters[i]['mood_score']=[x*100/float(sum(clusters[i]['moodcount'])) for x in clusters[i]['mood_score']]
+		print mood_score
+	mood_score=[x*100/float(sum(mood_score)) for x in mood_score]
+	clusters[i]['mood_score']=[]
+	for j in xrange(8):
+		clusters[i]['mood_score'].append({'emotion':plutchik[j], 'score':mood_score[j]})
 	if to_print:
 		print clusters[i]['mood_score']
 	
