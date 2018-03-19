@@ -3,6 +3,7 @@
 function getScatterplotData(clusterId){
   console.log("inside the getScatterplotData")
 
+var emotion_name = ["anger","anticipation","disgust","fear","joy","sadness","surprise","trust"];
 var svg2 = d3.select("#scatter"),
     margin = {top: 10, right: 10, bottom: 10, left: 10},
     widthscatter = +svg2.attr("width"),
@@ -53,7 +54,7 @@ d3.json("@BarackObama_scatter.json", function(error, datascatter) {
   if (error) throw error;
   //console.log((datascatter[clusterId]));
   
-  var keys=datascatter[clusterId];
+  var keys=datascatter[0];
   var tweetwords=[]
   // For each tweetID, 
   keys.forEach(function(tweetID) {
@@ -77,39 +78,33 @@ d3.json("@BarackObama_scatter.json", function(error, datascatter) {
     .attr("id", function (d,i) { return "chart"+i; })
     .append("g").attr("class","pies")
     .on("mouseover",function(d){
-      //console.log("Points being hovered ", d);
+      console.log("Points being hovered ", d);
       d3.select(this).attr("stroke","black")
-
       divtooltip.transition()
-                .duration(500)  
-                .style("opacity", 0);
-            divtooltip.transition()
-                .duration(200)  
-                //.style("display", "block")
-                .style("visibility", "visible")
-                .style("opacity", .9);
-                var html;   
-                //console.log("LENGHTH",d);
-                var sum = 0;
+        .duration(500)  
+        .style("opacity", 0);
+      divtooltip.transition()
+        .duration(200)  
+        .style("visibility", "visible")
+        .style("opacity", .9);
+      var html;   
+      var sum = 0;
+      html = '<p><em>'+d.word+'</em></p> <p><strong>valence</strong> ' + d.vad[0] + '</p> <p><strong>arousal</strong> ' + d.vad[1] + '</p> <p><strong>dominance</strong> ' + d.vad[2] + '</p> <p><strong>emotion</strong> ';
+      d.emotions.forEach(function(val,i) {
+        console.log(d,i,val);
+                if (val!= 0 && i< 8) {
+                    html = html + emotion_name[i] + " ";
+                }})
+      //html = html + '<h3></h3>';
 
-                    html = '<p class="header">Grant total number of tweets for all companies : <span class="clickstylebubble">' + 'some ' + '</p>';
-
-
-               
-                html = html + '<h3></h3>'
-
-            divtooltip .html(html) 
-
-                .style("left", (d3.event.pageX) + "px")          
-                .style("top", (d3.event.pageY - 28) + "px");
+      divtooltip .html(html) 
+          .style("left", (d3.event.pageX) + "px")          
+          .style("top", (d3.event.pageY - 28) + "px");
 
     })
     .on("mouseout", function(d){
       d3.select(this).attr("stroke","none");
-      divtooltip.transition()        
-                .duration(500)   
-                .style("visibility", "hidden")   
-                .style("opacity", 0);
+
     });
   
   
