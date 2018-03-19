@@ -143,7 +143,7 @@
                 //console.log("LENGHTH",d);
                 var sum = 0;
 
-                    html = '<p class="header">Grant total number of tweets for all companies : <span class="clickstylebubble">' + 'some ' + '</p>';
+                    html = '<p class="header">emtweetGrant total number of tweets for all companies : <span class="clickstylebubble">' + 'some ' + '</p>';
 
 
                
@@ -254,10 +254,15 @@
 
       // console.log("nodes : ", nodes );
 
-      nodes.forEach(function(y3){
+      nodes.forEach(function(y3,i){
         y3.cx = d.startdate;
         y3.cy = +d.vad_score[0];
-        // console.log()
+        y3.em_index=+i-1;
+        y3.strength=+y3.value;
+        y3.detail_v=d.detail_v;//.reduce(normalize,0);
+        y3.detail_a=d.detail_a;
+        y3.detail_d=d.detail_d;
+        // console.log("nodes",d,i, y3.value)
       });
 
       d.nodes = nodes;
@@ -329,6 +334,7 @@
       var innerCirclesAndArrows = gDetails.append("g").attr("class", "hovercircles");
       innerCirclesAndArrows.selectAll('circle')
       .data(function(d){ 
+        // console.log(d)
         return d.nodes;
       })
       .enter()
@@ -338,9 +344,12 @@
       .attr('cy', function (d) { return y(d.cy) + d.y - 75/2 +height/2; })
       .attr('r', function (d) { return d.r; })
       .style("fill", function(d) { if(d.depth == 0) return "red"; else return "green"; })
-      .on("mouseover", function(m) {
-        if(m.depth == 1){
+      .style("opacity", function(d) { if(d.depth == 0) return 10; else return 20; })
+      .on("mouseover", function(d) {
+        // console.log("before mouse hover" ,d);
+        if(d.depth == 1){
           console.log("Mouse hovering on circle");
+          console.log(d); 
         divtooltip.transition()
         .duration(500)  
         .style("opacity", 0);
@@ -349,18 +358,14 @@
                 //.style("display", "block")
                 .style("visibility", "visible")
                 .style("opacity", .9);
-                var html;   
+                var html='';   
                 //console.log("LENGHTH",d);
                 var sum = 0;
-
-                html = '<p class="header">Grant total number of tweets for all companies : <span class="clickstylebubble">' + 'some ' + '</p>';
-
-
-
+                // console.log("index" ,d.em_index)
+                console.log('sum = ',);
+                html='<p><em>'+keys[d.em_index]+'</em></p><p><strong>valence</strong> ' + Number(d.detail_v[d.em_index]/d.detail_v.reduce(function(a,b){return a+b;},0)).toFixed(2) + '</p> <p><strong>arousal</strong> ' + Number(d.detail_a[d.em_index]/d.detail_a.reduce(function(a,b){return a+b;},0)).toFixed(2) + '</p> <p><strong>dominance</strong> ' + Number(d.detail_d[d.em_index]/d.detail_d.reduce(function(a,b){return a+b;},0)).toFixed(2) + '</p> <p><strong>strength</strong> ' +Number(d.strength).toFixed(2) + '%';
                 html = html + '<h3></h3>'
-
                 divtooltip .html(html) 
-
                 .style("left", (d3.event.pageX) + "px")          
                 .style("top", (d3.event.pageY - 28) + "px");
 
