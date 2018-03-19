@@ -51,17 +51,21 @@ var pie = d3.pie()
 
 d3.json("@BarackObama_scatter.json", function(error, datascatter) {
   if (error) throw error;
+  console.log((datascatter[clusterId]));
   // var clusterId=0;
-  var keys=Object.keys(datascatter[clusterId][clusterId])
+  // var keys=Object.keys(datascatter[clusterId][clusterId])
+  var keys=datascatter[clusterId]
   var tweetwords=[]
   // For each tweetID, 
   keys.forEach(function(tweetID) {
-      datascatter[clusterId][clusterId][tweetID].forEach(function(d){
+    console.log("tid", tweetID)
+      tweetID.words.forEach(function(d){
+        console.log("D, ", d);
       d.textword=d.word;
       d.emotions=d.plutchik;
       d.xvalue = +d.vad[1];
       d.yvalue = +d.vad[0];
-      d.tweetID=tweetID;
+      d.tweetID=tweetID.tweetid;
       tweetwords.push(d);
      })
   });
@@ -90,8 +94,6 @@ d3.json("@BarackObama_scatter.json", function(error, datascatter) {
   pies.append("path")
     .attr('d',arc)  
       .attr("fill",function(d,i){
-        // console.log(d,i)
-        // var m = [1,0,0,1,1,0,1,1]
         if(d.index == 0) return color(1); 
         else if(d.index == 1) return color(10); 
         else if(d.index == 2) return color(20); 
