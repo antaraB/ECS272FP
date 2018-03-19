@@ -49,7 +49,7 @@ var pie = d3.pie()
       .value(function(d) { return d; });
       
 
-d3.json("@BarackObama_scatter.json", function(error, datascatter) {
+d3.json(selectedFilename + "_scatter.json", function(error, datascatter) {
   if (error) throw error;
   //console.log((datascatter[clusterId]));
   
@@ -122,18 +122,18 @@ d3.json("@BarackObama_scatter.json", function(error, datascatter) {
     .enter()
     .append('g')
     .attr('class','arc');
-  
+
   pies.append("path")
     .attr('d',arc)  
       .attr("fill",function(d,i){
-        if(d.index == 0) return color(1); 
-        else if(d.index == 1) return color(10); 
-        else if(d.index == 2) return color(20); 
-        else if(d.index == 3) return color(30); 
-        else if(d.index == 4) return color(40); 
-        else if(d.index == 5) return color(50); 
-        else if(d.index == 6) return color(60); 
-        else if(d.index == 7) return color(70);      
+        if(d.index == 0) return emotioncolors["anger"]; 
+        else if(d.index == 1) return emotioncolors["anticipation"]; 
+        else if(d.index == 2) return emotioncolors["disgust"]; 
+        else if(d.index == 3) return emotioncolors["fear"]; 
+        else if(d.index == 4) return emotioncolors["joy"]; 
+        else if(d.index == 5) return emotioncolors["sadness"]; 
+        else if(d.index == 6) return emotioncolors["surprise"]; 
+        else if(d.index == 7) return emotioncolors["trust"];      
       });
       
   

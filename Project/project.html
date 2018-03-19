@@ -15,19 +15,21 @@
 
 	<body>
 		<div>
-			<header style="width:1202px; margin:0 auto">
-				<h1>PEARL</h1>
-			</header>
+			
 
 			<div id="tooltip"></div>
 			<div style="width:1202px; margin:0 auto">
-				<table class="ui-widget-header ui-corner-all" style="width:1202px; padding:2px; text-align:left; font-size: 14px">
+				<table class="tool-tip" style="width:1202px; background-color: #cccccc; border-radius: 5px; border: 1px solid #aaaaaa; padding:2px; text-align:left; font-size: 14px">
 					<tr>
-						<td style="width:700px;">
+						<td style="width:500px;">
 							<select id="userid_text" title="Select dataset here" style="width: 150px; height: 30px"></select> 
-							<button id="show_button"></button>
 						</td>
-						<td>
+						<td style="width:200px;">
+							<header style="margin:0 auto">
+								<h2>PEARL</h2>
+							</header>
+						</td>
+						<td style="text-align: right">
 							<svg id="legend" width="300px" height="32px" margin="auto 0">
 								<defs>
 									<marker id="ahead" viewBox="0 0 10 10" refX="8" refY="5" 
@@ -44,7 +46,7 @@
 				<!-- <div id="progressbar"><div class="progress-label">Loading...</div></div> -->
 				
 				<div id="vizcontent" style="width:1200px; height:680;">
-					<svg id="emviz_canvas" class="ui-widget-content ui-corner-all" width="1200" height="500" style="border: 1px solid lightgray;">
+					<svg id="emviz_canvas" class="ui-widget-content ui-corner-all" width="1200" height="500" style="border: 1px solid lightgray; border-radius: 5px;">
 						<defs>
       						<marker id="ahead" viewBox="0 0 10 10" refX="8" refY="5" 
       								markerUnits="strokeWidth" markerWidth="5" markerHeight="3" orient="auto">
@@ -55,10 +57,10 @@
 					
 					<table id="emviz_tweets" style="width:1200px; height:300px;" >
 						<tr>
-							<td id="plot_canvas" class="ui-widget-content ui-corner-all" style="border: 1px solid lightgray;">
+							<td id="plot_canvas" class="ui-widget-content ui-corner-all" style="border: 1px solid lightgray; border-radius: 5px;">
 							<svg id = "scatter" width="300" height="300"></svg>								
 							</td>
-							<td class="ui-widget-content ui-corner-all" style="border: 1px solid lightgray;">
+							<td class="ui-widget-content ui-corner-all" style="border: 1px solid lightgray; border-radius: 5px;">
 								<div id="tweets_box" style="width:890px; height:300px; overflow:auto;">
 								</div>
 							</td>

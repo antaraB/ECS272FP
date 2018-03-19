@@ -87,12 +87,14 @@
 
   var series;
 
+  console.log("dsdssss ::",selectedFilename);
+
   //////////////////////////////////
   // Now we need to read the data //
   //////////////////////////////////
-  d3.csv('@BarackObama.csv', type, function(error, data) {
+  d3.csv(selectedFilename + '.csv', type, function(error, data) {
     if (error) throw error;
-    //console.log(data);
+    console.log("data ccalled for file name : ",selectedFilename);
     c = data;
     series = stack(data);
 
@@ -195,8 +197,9 @@
       })
       .attr("height", height)
       .attr("opacity",0.7)
-      .attr("fill", function(d) { 
-        if(m == "anger") return "green"; 
+      .attr("fill", function(d) {
+        return emotioncolors[m]; 
+        /*if(m == "anger") return "green"; 
         else if(m == "anticipation") return "red";
         else if(m == "disgust") return "yellow";
         else if(m == "fear") return "orange";
@@ -204,13 +207,13 @@
         else if(m == "sadness") return "grey";
         else if(m == "surprise") return "pink";
         else if(m == "trust") return "brown";
-        return "black";
+        return "black";*/
       });
     })
 
 
     /////////////////////////
-    d3.json("@BarackObama_tfidf_bubble.json", function(error, data) {
+    d3.json(selectedFilename + "_tfidf_bubble.json", function(error, data) {
     if (error) throw error;
 
 
