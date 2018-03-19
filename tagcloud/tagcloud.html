@@ -3,10 +3,12 @@
 <script src="d3.js"></script>
 <script src="d3.layout.cloud.js"></script>
 <script src="tagcloud.js"></script>
+<script src="../data/json/@BarackObama_tfidf.json"></script>
 
 <script>
     window.onload = function(){
-        drawtagcloud('example',0);
+        var filename= 'data/@katyperry_tfidf.json'
+        drawtagcloud(filename,0);
     }
 </script>
 <head>
