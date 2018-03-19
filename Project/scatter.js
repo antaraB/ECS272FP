@@ -52,15 +52,12 @@ var pie = d3.pie()
 d3.json("@BarackObama_scatter.json", function(error, datascatter) {
   if (error) throw error;
   console.log((datascatter[clusterId]));
-  // var clusterId=0;
-  // var keys=Object.keys(datascatter[clusterId][clusterId])
+  
   var keys=datascatter[clusterId]
   var tweetwords=[]
   // For each tweetID, 
   keys.forEach(function(tweetID) {
-    console.log("tid", tweetID)
       tweetID.words.forEach(function(d){
-        console.log("D, ", d);
       d.textword=d.word;
       d.emotions=d.plutchik;
       d.xvalue = +d.vad[1];
