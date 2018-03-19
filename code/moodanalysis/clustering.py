@@ -72,9 +72,9 @@ parser.add_argument('-c', '--csvfilename',action='store', help="Complete path of
 parser.add_argument('-p','--picklefile',action='store', help="Complete path of pickled (preprocessed tweets) file")
 parser.add_argument('-s','--stemmer', choices=['snowball','porter'], default='snowball', help=" Select stemmer to be used. Choices: snowball or porter")
 parser.add_argument('-v','--verbose', action='store_true', help=" Will print values at intermediate steps ")
-parser.add_argument('-vt','--valence', default=4.0, help=" Value for valence threshold. Default is 1.5 ")
-parser.add_argument('-at','--arousal', default=4.7, help=" Value for valence threshold. Default is 2.7 ")
-parser.add_argument('-dt','--dominance', default=4.3, help=" Value for valence threshold. Default is 2 ")
+parser.add_argument('-vt','--valence', default=1.5, help=" Value for valence threshold. Default is 1.5 ")
+parser.add_argument('-at','--arousal', default=2.0, help=" Value for valence threshold. Default is 2.7 ")
+parser.add_argument('-dt','--dominance', default=2.3, help=" Value for valence threshold. Default is 2 ")
 
 args=parser.parse_args()
 # if not csvfilename:
@@ -121,6 +121,15 @@ clusters=[]
 
 cluster_emotion,cluster = initcluster()
 count=0
+year=0
+for row in data:
+	if datetime.strptime(row[1],dateformat).year>year:
+		print "{} tweets in year {}".format(count,year)
+		year=datetime.strptime(row[1],dateformat).year
+		count=0
+	else:
+		count+=1
+
 clusterexists=False
 for row in data:
 	tweetid=row[0]
