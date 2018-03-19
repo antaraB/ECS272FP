@@ -59,13 +59,14 @@ if __name__=="__main__":
 	clusterlen= len(clusters)
 	final=[]
 	for i in xrange(clusterlen):
-		cluster={}
-		cluster[i]={}
+		cluster=[]
+		# cluster[i]=[]
 		for tweetid in clusters[i]['tweets']:
-			cluster[i][tweetid]=[]
+			words=[]
 			for word in affexp[tweetid]:
-				cluster[i][tweetid].append({'word':word, 'vad':affexp[tweetid][word]['vad'], 'plutchik':affexp[tweetid][word]['plutchik']})
-			# cluster[i]
+				words.append({'word':word, 'vad':affexp[tweetid][word]['vad'], 'plutchik':affexp[tweetid][word]['plutchik']})
+			tweet={'tweetid':tweetid,'words':words}
+			cluster.append(tweet)
 		final.append(cluster)
 	with open ('data/json/'+twitterid+'_scatter.json','w') as f:
 		json.dump(final, f)
