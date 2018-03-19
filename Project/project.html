@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+
+		<title>Pearl</title>
+		
+		<link rel="stylesheet" href="style.css">
+ 		<script src="https://d3js.org/d3.v4.min.js"></script>
+
+	</head>
+
+	<body>
+		<div>
+			<header style="width:1202px; margin:0 auto">
+				<h1>PEARL</h1>
+			</header>
+
+			<div id="tooltip"></div>
+			<div style="width:1202px; margin:0 auto">
+				<!-- <table class="ui-widget-header ui-corner-all" style="width:1202px; padding:2px; text-align:left; font-size: 14px">
+					<tr>
+						<td style="width:700px;">
+							<select id="userid_text" title="Select dataset here" style="width: 150px; height: 30px"></select> 
+							<button id="show_button"></button>
+						</td>
+						
+						<td style="width:200px;">
+							<span id="emotionstyle">
+								<input type="checkbox" id="emstyle1" /><label for="emstyle1" title="Extreme emotion">E</label>
+    							<input type="checkbox" id="emstyle2" /><label for="emstyle2" title="Outlook">O</label>
+    							<input type="checkbox" id="emstyle3" /><label for="emstyle3" title="Resillance">R</label>
+							</span>
+							<input type="checkbox" id="split_button" /><label for="split_button">Expand/Collapse</label>
+						</td>
+						<td>
+							<svg id="legend" width="300px" height="32px" margin="auto 0">
+								<defs>
+									<marker id="ahead" viewBox="0 0 10 10" refX="8" refY="5" 
+								    	markerUnits="strokeWidth" markerWidth="5" markerHeight="3" orient="auto">
+								    	<path d="M 0 0 L 10 5 L 0 10 z" />
+									</marker>
+								</defs>
+
+							</svg>	
+						</td>
+					</tr>
+				</table> -->
+				
+				<!-- <div id="progressbar"><div class="progress-label">Loading...</div></div> -->
+				
+				<div id="vizcontent" style="width:1200px; height:680;">
+					<svg id="emviz_canvas" class="ui-widget-content ui-corner-all" width="1200" height="500" style="border: 1px solid lightgray;">
+					</svg>
+					
+					<table id="emviz_tweets" style="width:1200px; height:300px;" >
+						<tr>
+							<td id="plot_canvas" class="ui-widget-content ui-corner-all" style="border: 1px solid lightgray;">
+							<svg id = "scatter" width="300" height="300"></svg>								
+							</td>
+							<td class="ui-widget-content ui-corner-all" style="border: 1px solid lightgray;">
+								<div id="tweets_box" style="width:890px; height:300px; overflow:auto;">
+								</div>
+							</td>
+						</tr>
+					</table>	
+				</div>
+			</div>
+			
+			<script type="text/javascript" src="project.js"></script>
+			<script type="text/javascript" src="scatter.js"></script>
+			<script type="text/javascript" src="rawtweet.js"></script>
+ 			<script src="https://d3js.org/d3.v4.min.js"></script>
+
+		</div>
+	</body>
+</html>

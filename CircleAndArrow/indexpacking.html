@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+	body { font-family: Arial;}
+	
+	.axis, .axis path {
+		fill: none;
+		stroke: #ACB849;
+	}
+	text {
+		stroke: none;
+		fill: #666666;
+	}
+</style>
+<body>
+	<svg id="scatter" width="500" height="500">
+		<defs>
+			<marker id="ahead" viewBox="0 0 10 10" refX="8" refY="5" 
+			markerUnits="strokeWidth" markerWidth="5" markerHeight="3" orient="auto">
+			<path d="M 0 0 L 10 5 L 0 10 z" />
+		</marker>
+	</defs>
+</svg>
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+	var svg = d3.select("#scatter"),
+	margin = {top: 20, right: 20, bottom: 30, left: 50},
+	width = +svg.attr("width"),
+	height = +svg.attr("height"),
+	domainwidth = width - margin.left - margin.right,
+	domainheight = height - margin.top - margin.bottom;
+
+
+	var x = d3.scaleLinear()
+	.domain([0,1])
+	.range([0, domainwidth]);
+	var y = d3.scaleLinear()
+	.domain([0,1])
+	.range([domainheight, 0]);
+	
+	var g = svg.append("g")
+	.attr("transform", "translate(" + margin.top + "," + margin.top + ")");
+	
+	g.append("rect")
+	.attr("width", width - margin.left - margin.right)
+	.attr("height", height - margin.top - margin.bottom)
+	.attr("fill", "#F6F6F6");
+
+	var g2 = svg.append("g");
+
+
+
+	var color = d3.scaleThreshold()
+	.domain([10,20,30,40,50,60,70])
+	.range(["violet", "indigo", "blue", "green", "yellow", "orange", "red", "black"]);
+		//.range(["#E43054", "#9F78BA", "#FADB4D", "#4EABC3", "#F4AB5B", "#35A450", "#82A6CA", "#ACCC6C"]);
+
+
+
+		var arc = d3.arc()
+		.innerRadius(0)
+		.outerRadius(7);
+
+		var pie = d3.pie()
+		.sort(null)
+		.value(function(d) { return d; });
+
+
+		d3.json("data.json", function(error, data) {
+			if (error) throw error;
+
+			data.forEach(function(d) {
+				d.value2 = +d.value2;
+				d.value = +d.value;
+
+
+				var dataa = [];
+				var temp = { id : d.id, parentId : undefined, size : undefined };
+				dataa.push(temp);
+				d.more.forEach(function(x){
+					var temp1 = {};
+					temp1.id = x.more1;
+					temp1.parentId = d.id;
+					temp1.size = x.more2.toString();
+          		//console.log("temp1 : ", temp1);
+          		dataa.push(temp1);
+          	});
+
+				const layout = d3.pack()
+				.size([75, 75])
+				.padding(0)
+
+
+          	dataa.sort(function(x, y){ return d3.ascending(x.size, y.size) })
+          	if (error) throw error;
+
+          	const stratData = d3.stratify()(dataa),
+          	root = d3.hierarchy(stratData)
+          	.sum(function (d) {return d.data.size })
+          	.sort(function(a, b) { return b.value - a.value }),
+          	nodes = root.descendants()
+
+          	layout(root)
+
+
+
+          	console.log("nodes : ", nodes );
+
+          	nodes.forEach(function(y){
+          		y.cx = +d.value2;
+          		y.cy = +d.value;
+          	});
+
+          	d.nodes = nodes;
+
+          });
+
+
+
+
+			console.log("data : ", data);
+			console.log("dataaaaaaaaaaaaaaaaaaaaaaaaaa ");
+
+
+
+
+
+
+
+			g1 = g.selectAll("points")
+			.data(data)
+			.enter().append("g");
+
+
+			g1.append("circle")
+			.attr("class", "innerc")
+			//.attr("r", 7)
+			.attr("r", function(d){
+				return 6;
+			})
+			.attr("cx", function(d) { return x(d.value2); })
+			.attr("cy", function(d) { return y(d.value); })
+			.style("fill", "darkgray")
+			.style("fill-opacity", 0.8)
+			.style("stroke", "black");
+
+
+			g1.append("line")
+			.attr("class", "domline")
+			.attr("x1",function(d) { return x(d.value2) - 5.590147365513294; })  
+			.attr("y1",function(d) { return y(d.value) + 2.179507383; })  
+			.attr("x2",function(d) { return x(d.value2) + 5.590147365513294; })  
+			.attr("y2",function(d) { return y(d.value) - 2.179507383; })  
+			.attr("stroke","white")  
+			.attr("stroke-width",2)  
+			.attr("marker-end","url(#ahead)");
+
+
+			var gDetails = g1.append("g").attr("class", "gDetails").attr("visibility", "hidden").attr("opacity", 0);
+
+			gDetails.append("circle")
+			.attr("class", "outerr")
+			.attr("r", 42)
+			.attr("cx", function(d) { return x(d.value2); })
+			.attr("cy", function(d) { return y(d.value); })
+			.attr("stroke", "black")
+			.attr("fill", "lightgreen")
+			.attr("fill-opacity", 0.5);
+
+
+			gDetails.append("circle")
+			.attr("class", "outerc")
+			.attr("r", 35)
+			.attr("cx", function(d) { return x(d.value2); })
+			.attr("cy", function(d) { return y(d.value); })
+			.attr("stroke", "black")
+			.attr("fill", "none");
+
+
+			var innerCirclesAndArrows = gDetails.append("g").attr("class", "asdasd");
+			innerCirclesAndArrows.selectAll('circle')
+			.data(function(d){ 
+				return d.nodes;
+			})
+			.enter()
+			.append('circle')
+			.attr('cx', function (d) { return x(d.cx) + d.x - 75/2; })
+			.attr('cy', function (d) { return y(d.cy) + d.y - 75/2; })
+			.attr('r', function (d) { return d.r; })
+			.style("fill", function(d) { if(d.depth == 0) return "red"; else return "green"; });
+
+
+			innerCirclesAndArrows.selectAll('line')
+			.data(function(d){ 
+				return d.nodes;
+			})
+			.enter().append("line")
+			.attr("class", "domline")
+			.attr("x1",function(d) { return x(d.cx) + d.x - 75/2 - d.r/2; })  
+			.attr("y1",function(d) { return y(d.cy) + d.y - 75/2 + d.r; })  
+			.attr("x2",function(d) { return x(d.cx) + d.x - 75/2 + d.r/2; })  
+			.attr("y2",function(d) { return y(d.cy) + d.y - 75/2 - d.r; })  
+			.attr("stroke","white")  
+			.attr("stroke-width",2)  
+			.attr("marker-end","url(#ahead)")
+			.attr("visibility", function(d){if(d.depth == 0) return "hidden"; else return "visibility";});
+
+			g1.on("mouseover", function(d){
+				//console.log("d : ",d);
+				d3.select(this).select(".gDetails").transition().duration(500).attr("opacity", 1).attr("visibility", "visible");
+
+			}).on("mouseout", function(d){
+				d3.select(this).select(".gDetails").transition().duration(500).attr("opacity", 0).attr("visibility", "hidden");
+			})
+
+
+
+
+
+
+
+			g.append("g")
+			.attr("class", "x axis")
+			.attr("transform", "translate(0," + y.range()[0] / 2 + ")")
+			.call(d3.axisBottom(x).ticks(5));
+
+			g.append("g")
+			.attr("class", "y axis")
+			.attr("transform", "translate(" + x.range()[1] / 2 + ", 0)")
+			.call(d3.axisLeft(y).ticks(5));
+		});
+
+	</script>
+</body>

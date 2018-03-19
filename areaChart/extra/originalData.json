@@ -1,0 +1,2804 @@
+[
+  {
+    "emotion_resilience": false,
+    "emotion_outlook": true,
+    "time": [
+      "Sat Apr 14 16:15:35 PDT 2012",
+      "Mon Apr 23 04:47:53 PDT 2012"
+    ],
+    "mood_score": [
+      0,
+      19,
+      0,
+      7,
+      11,
+      0,
+      0,
+      18,
+      44,
+      8
+    ],
+    "detail_v": [
+      0,
+      6.31578947368421,
+      0,
+      5.14,
+      7.242727272727274,
+      0,
+      0,
+      6.362777777777778
+    ],
+    "tfidf": [
+      {
+        "time": "Sat Apr 14 16:15:35 PDT 2012",
+        "words": [
+          {
+            "content": "he",
+            "score": 0.22094573364483505
+          },
+          {
+            "content": "does",
+            "score": 0.19391472643762409
+          },
+          {
+            "content": "that",
+            "score": 0.46964793647050196
+          },
+          {
+            "content": "just",
+            "score": 0.549712809647242
+          },
+          {
+            "content": "watch",
+            "score": 0.22094573364483505
+          },
+          {
+            "content": "in",
+            "score": 0.3679467681699928
+          },
+          {
+            "content": "a",
+            "score": 0.43327782594619557
+          },
+          {
+            "content": "few",
+            "score": 0.19391472643762409
+          }
+        ],
+        "tweet_id": 191303719500005380
+      },
+      {
+        "time": "Sat Apr 14 16:20:08 PDT 2012",
+        "words": [
+          {
+            "content": "restaurant",
+            "score": 0.22094573364483505
+          },
+          {
+            "content": "in",
+            "score": 0.3679467681699928
+          },
+          {
+            "content": "raleigh",
+            "score": 0.19391472643762409
+          },
+          {
+            "content": "via",
+            "score": 0.11364987281589502
+          },
+          {
+            "content": "no",
+            "score": 0.12067390719308342
+          }
+        ],
+        "tweet_id": 191304865262211070
+      },
+      {
+        "time": "Sat Apr 14 17:22:33 PDT 2012",
+        "words": [
+          {
+            "content": "is",
+            "score": 0.1706766280655992
+          },
+          {
+            "content": "there",
+            "score": 0.4122846072354316
+          },
+          {
+            "content": "a",
+            "score": 0.43327782594619557
+          },
+          {
+            "content": "time",
+            "score": 0.7240434431585006
+          },
+          {
+            "content": "of",
+            "score": 0.6719465367077136
+          },
+          {
+            "content": "year",
+            "score": 0.19391472643762409
+          },
+          {
+            "content": "than",
+            "score": 0.17473592160750537
+          },
+          {
+            "content": "time",
+            "score": 0.7240434431585006
+          }
+        ],
+        "tweet_id": 191320570678362100
+      },
+      {
+        "time": "Mon Apr 16 08:52:38 PDT 2012",
+        "words": [
+          {
+            "content": "ibm",
+            "score": 0.41158148766422986
+          },
+          {
+            "content": "for",
+            "score": 0.3153829441457081
+          },
+          {
+            "content": "business",
+            "score": 0.5817441793128723
+          },
+          {
+            "content": "has",
+            "score": 0.47957905455967414
+          },
+          {
+            "content": "a",
+            "score": 0.43327782594619557
+          },
+          {
+            "content": "great",
+            "score": 0.1374282024118105
+          },
+          {
+            "content": "new",
+            "score": 0.30448530708889415
+          },
+          {
+            "content": "ipad",
+            "score": 0.14770491440029437
+          },
+          {
+            "content": "app",
+            "score": 0.12852610957017566
+          },
+          {
+            "content": "available",
+            "score": 0.17473592160750537
+          },
+          {
+            "content": "with",
+            "score": 0.16463259506569194
+          },
+          {
+            "content": "access",
+            "score": 0.22094573364483505
+          },
+          {
+            "content": "to",
+            "score": 0.3390513974210887
+          },
+          {
+            "content": "all",
+            "score": 0.27365517112344245
+          }
+        ],
+        "tweet_id": 191917022362337280
+      },
+      {
+        "time": "Mon Apr 16 09:17:42 PDT 2012",
+        "words": [
+          {
+            "content": "as",
+            "score": 0.4122846072354316
+          },
+          {
+            "content": "of",
+            "score": 0.6719465367077136
+          },
+          {
+            "content": "today",
+            "score": 0.4826956287723337
+          },
+          {
+            "content": "i",
+            "score": 0.39959287851252745
+          },
+          {
+            "content": "have",
+            "score": 0.3620217215792503
+          },
+          {
+            "content": "a",
+            "score": 0.43327782594619557
+          },
+          {
+            "content": "new",
+            "score": 0.30448530708889415
+          },
+          {
+            "content": "at",
+            "score": 0.18325814637483104
+          },
+          {
+            "content": "ibm",
+            "score": 0.41158148766422986
+          },
+          {
+            "content": "cloud",
+            "score": 1.2992829841302609
+          },
+          {
+            "content": "socbiz",
+            "score": 0.47957905455967414
+          }
+        ],
+        "tweet_id": 191923330335518720
+      },
+      {
+        "time": "Mon Apr 16 09:46:28 PDT 2012",
+        "words": [
+          {
+            "content": "thanks",
+            "score": 0.48079460925697803
+          }
+        ],
+        "tweet_id": 191930570379493380
+      },
+      {
+        "time": "Mon Apr 16 11:25:01 PDT 2012",
+        "words": [
+          {
+            "content": "it",
+            "score": 0.23249039181421896
+          },
+          {
+            "content": "turns",
+            "score": 0.22094573364483505
+          },
+          {
+            "content": "out",
+            "score": 0.28847676555418683
+          },
+          {
+            "content": "is",
+            "score": 0.1706766280655992
+          },
+          {
+            "content": "really",
+            "score": 0.3620217215792503
+          },
+          {
+            "content": "work",
+            "score": 0.19391472643762409
+          },
+          {
+            "content": "all",
+            "score": 0.27365517112344245
+          },
+          {
+            "content": "these",
+            "score": 0.15985968485322471
+          },
+          {
+            "content": "social",
+            "score": 0.34947184321501074
+          },
+          {
+            "content": "platforms",
+            "score": 0.22094573364483505
+          },
+          {
+            "content": "need",
+            "score": 0.12852610957017566
+          },
+          {
+            "content": "linkedin",
+            "score": 0.22094573364483505
+          },
+          {
+            "content": "twitter",
+            "score": 0.17473592160750537
+          },
+          {
+            "content": "google",
+            "score": 0.17473592160750537
+          },
+          {
+            "content": "socbiz",
+            "score": 0.47957905455967414
+          }
+        ],
+        "tweet_id": 191955373035491330
+      },
+      {
+        "time": "Mon Apr 16 11:26:08 PDT 2012",
+        "words": [
+          {
+            "content": "today",
+            "score": 0.4826956287723337
+          },
+          {
+            "content": "and",
+            "score": 0.22114116130254005
+          },
+          {
+            "content": "thanks",
+            "score": 0.48079460925697803
+          }
+        ],
+        "tweet_id": 191955650954280960
+      },
+      {
+        "time": "Mon Apr 16 11:53:46 PDT 2012",
+        "words": [
+          {
+            "content": "ibm",
+            "score": 0.41158148766422986
+          },
+          {
+            "content": "first",
+            "score": 0.34947184321501074
+          },
+          {
+            "content": "cloud",
+            "score": 1.2992829841302609
+          },
+          {
+            "content": "conference",
+            "score": 0.7756589057504963
+          },
+          {
+            "content": "this",
+            "score": 0.25985659682605217
+          },
+          {
+            "content": "and",
+            "score": 0.22114116130254005
+          },
+          {
+            "content": "friday",
+            "score": 0.22094573364483505
+          },
+          {
+            "content": "at",
+            "score": 0.18325814637483104
+          },
+          {
+            "content": "rtp",
+            "score": 0.22094573364483505
+          },
+          {
+            "content": "nc",
+            "score": 0.34947184321501074
+          },
+          {
+            "content": "cloud",
+            "score": 1.2992829841302609
+          }
+        ],
+        "tweet_id": 191962607207464960
+      },
+      {
+        "time": "Mon Apr 16 12:35:37 PDT 2012",
+        "words": [
+          {
+            "content": "thanks",
+            "score": 0.48079460925697803
+          },
+          {
+            "content": "there",
+            "score": 0.4122846072354316
+          },
+          {
+            "content": "a",
+            "score": 0.43327782594619557
+          },
+          {
+            "content": "to",
+            "score": 0.3390513974210887
+          }
+        ],
+        "tweet_id": 191973139280969730
+      },
+      {
+        "time": "Mon Apr 16 13:56:02 PDT 2012",
+        "words": [
+          {
+            "content": "what",
+            "score": 0.274856404823621
+          },
+          {
+            "content": "do",
+            "score": 0.385578328710527
+          },
+          {
+            "content": "you",
+            "score": 0.41158148766422986
+          },
+          {
+            "content": "know",
+            "score": 0.29540982880058875
+          },
+          {
+            "content": "has",
+            "score": 0.47957905455967414
+          },
+          {
+            "content": "just",
+            "score": 0.549712809647242
+          },
+          {
+            "content": "published",
+            "score": 0.19391472643762409
+          },
+          {
+            "content": "a",
+            "score": 0.43327782594619557
+          },
+          {
+            "content": "on",
+            "score": 0.1282593761643492
+          },
+          {
+            "content": "cloud",
+            "score": 1.2992829841302609
+          },
+          {
+            "content": "of",
+            "score": 0.6719465367077136
+          },
+          {
+            "content": "cloud",
+            "score": 1.2992829841302609
+          },
+          {
+            "content": "time",
+            "score": 0.7240434431585006
+          },
+          {
+            "content": "to",
+            "score": 0.3390513974210887
+          },
+          {
+            "content": "go",
+            "score": 0.22094573364483505
+          },
+          {
+            "content": "reading",
+            "score": 0.38782945287524817
+          },
+          {
+            "content": "cloud",
+            "score": 1.2992829841302609
+          }
+        ],
+        "tweet_id": 191993376978120700
+      },
+      {
+        "time": "Wed Apr 18 07:12:48 PDT 2012",
+        "words": [
+          {
+            "content": "thanks",
+            "score": 0.48079460925697803
+          }
+        ],
+        "tweet_id": 192616676402016260
+      },
+      {
+        "time": "Wed Apr 18 07:13:37 PDT 2012",
+        "words": [
+          {
+            "content": "thanks",
+            "score": 0.48079460925697803
+          },
+          {
+            "content": "times",
+            "score": 0.4418914672896701
+          },
+          {
+            "content": "for",
+            "score": 0.3153829441457081
+          },
+          {
+            "content": "sure",
+            "score": 0.4418914672896701
+          },
+          {
+            "content": "lots",
+            "score": 0.6628372009345052
+          },
+          {
+            "content": "to",
+            "score": 0.3390513974210887
+          },
+          {
+            "content": "learn",
+            "score": 0.19391472643762409
+          },
+          {
+            "content": "what",
+            "score": 0.274856404823621
+          },
+          {
+            "content": "did",
+            "score": 0.4418914672896701
+          },
+          {
+            "content": "we",
+            "score": 0.15985968485322471
+          },
+          {
+            "content": "do",
+            "score": 0.385578328710527
+          },
+          {
+            "content": "before",
+            "score": 0.19391472643762409
+          },
+          {
+            "content": "social",
+            "score": 0.34947184321501074
+          }
+        ],
+        "tweet_id": 192616881646088200
+      },
+      {
+        "time": "Wed Apr 18 07:47:05 PDT 2012",
+        "words": [
+          {
+            "content": "new",
+            "score": 0.30448530708889415
+          },
+          {
+            "content": "blog",
+            "score": 0.22094573364483505
+          },
+          {
+            "content": "on",
+            "score": 0.1282593761643492
+          },
+          {
+            "content": "in",
+            "score": 0.3679467681699928
+          },
+          {
+            "content": "a",
+            "score": 0.43327782594619557
+          },
+          {
+            "content": "social",
+            "score": 0.34947184321501074
+          },
+          {
+            "content": "world",
+            "score": 0.22094573364483505
+          },
+          {
+            "content": "socbiz",
+            "score": 0.47957905455967414
+          },
+          {
+            "content": "cloud",
+            "score": 1.2992829841302609
+          }
+        ],
+        "tweet_id": 192625301799444480
+      },
+      {
+        "time": "Thu Apr 19 05:51:09 PDT 2012",
+        "words": [
+          {
+            "content": "ibm",
+            "score": 0.41158148766422986
+          },
+          {
+            "content": "first",
+            "score": 0.34947184321501074
+          },
+          {
+            "content": "annual",
+            "score": 0.22094573364483505
+          },
+          {
+            "content": "cloud",
+            "score": 1.2992829841302609
+          },
+          {
+            "content": "conference",
+            "score": 0.7756589057504963
+          },
+          {
+            "content": "cloud",
+            "score": 1.2992829841302609
+          },
+          {
+            "content": "ibmcloud",
+            "score": 0.28343845495094144
+          },
+          {
+            "content": "lifelonglearning",
+            "score": 0.22094573364483505
+          }
+        ],
+        "tweet_id": 192958513318854660
+      },
+      {
+        "time": "Thu Apr 19 05:52:40 PDT 2012",
+        "words": [
+          {
+            "content": "i",
+            "score": 0.39959287851252745
+          },
+          {
+            "content": "don",
+            "score": 0.31971936970644943
+          },
+          {
+            "content": "think",
+            "score": 0.22094573364483505
+          },
+          {
+            "content": "there",
+            "score": 0.4122846072354316
+          },
+          {
+            "content": "a",
+            "score": 0.43327782594619557
+          },
+          {
+            "content": "for",
+            "score": 0.3153829441457081
+          },
+          {
+            "content": "ibm",
+            "score": 0.41158148766422986
+          },
+          {
+            "content": "cloud",
+            "score": 1.2992829841302609
+          },
+          {
+            "content": "conference",
+            "score": 0.7756589057504963
+          },
+          {
+            "content": "so",
+            "score": 0.10729586082894002
+          },
+          {
+            "content": "i",
+            "score": 0.39959287851252745
+          },
+          {
+            "content": "just",
+            "score": 0.549712809647242
+          },
+          {
+            "content": "use",
+            "score": 0.4418914672896701
+          }
+        ],
+        "tweet_id": 192958894111338500
+      },
+      {
+        "time": "Thu Apr 19 06:11:47 PDT 2012",
+        "words": [
+          {
+            "content": "if",
+            "score": 0.38782945287524817
+          },
+          {
+            "content": "you",
+            "score": 0.41158148766422986
+          },
+          {
+            "content": "didn",
+            "score": 0.19391472643762409
+          },
+          {
+            "content": "your",
+            "score": 0.1374282024118105
+          },
+          {
+            "content": "up",
+            "score": 0.12067390719308342
+          },
+          {
+            "content": "of",
+            "score": 0.6719465367077136
+          },
+          {
+            "content": "lots",
+            "score": 0.6628372009345052
+          },
+          {
+            "content": "of",
+            "score": 0.6719465367077136
+          },
+          {
+            "content": "reading",
+            "score": 0.38782945287524817
+          },
+          {
+            "content": "to",
+            "score": 0.3390513974210887
+          },
+          {
+            "content": "do",
+            "score": 0.385578328710527
+          },
+          {
+            "content": "after",
+            "score": 0.15985968485322471
+          },
+          {
+            "content": "conference",
+            "score": 0.7756589057504963
+          },
+          {
+            "content": "ibmcloud",
+            "score": 0.28343845495094144
+          }
+        ],
+        "tweet_id": 192963705183535100
+      },
+      {
+        "time": "Thu Apr 19 06:20:32 PDT 2012",
+        "words": [
+          {
+            "content": "top",
+            "score": 0.17473592160750537
+          },
+          {
+            "content": "in",
+            "score": 0.3679467681699928
+          },
+          {
+            "content": "did",
+            "score": 0.4418914672896701
+          },
+          {
+            "content": "not",
+            "score": 0.28847676555418683
+          },
+          {
+            "content": "in",
+            "score": 0.3679467681699928
+          },
+          {
+            "content": "lifelonglearning",
+            "score": 0.22094573364483505
+          }
+        ],
+        "tweet_id": 192965907075710980
+      },
+      {
+        "time": "Thu Apr 19 06:25:36 PDT 2012",
+        "words": [
+          {
+            "content": "we",
+            "score": 0.15985968485322471
+          },
+          {
+            "content": "have",
+            "score": 0.3620217215792503
+          },
+          {
+            "content": "to",
+            "score": 0.3390513974210887
+          },
+          {
+            "content": "start",
+            "score": 0.38782945287524817
+          },
+          {
+            "content": "about",
+            "score": 0.3218875824868201
+          },
+          {
+            "content": "cloud",
+            "score": 1.2992829841302609
+          },
+          {
+            "content": "not",
+            "score": 0.28847676555418683
+          },
+          {
+            "content": "as",
+            "score": 0.4122846072354316
+          },
+          {
+            "content": "a",
+            "score": 0.43327782594619557
+          },
+          {
+            "content": "technology",
+            "score": 0.4418914672896701
+          },
+          {
+            "content": "but",
+            "score": 0.28847676555418683
+          },
+          {
+            "content": "as",
+            "score": 0.4122846072354316
+          },
+          {
+            "content": "a",
+            "score": 0.43327782594619557
+          },
+          {
+            "content": "business",
+            "score": 0.5817441793128723
+          }
+        ],
+        "tweet_id": 192967182827786240
+      },
+      {
+        "time": "Thu Apr 19 06:34:57 PDT 2012",
+        "words": [
+          {
+            "content": "services",
+            "score": 0.17473592160750537
+          },
+          {
+            "content": "in",
+            "score": 0.3679467681699928
+          },
+          {
+            "content": "cloud",
+            "score": 1.2992829841302609
+          },
+          {
+            "content": "not",
+            "score": 0.28847676555418683
+          },
+          {
+            "content": "only",
+            "score": 0.29540982880058875
+          },
+          {
+            "content": "money",
+            "score": 0.22094573364483505
+          },
+          {
+            "content": "more",
+            "score": 0.274856404823621
+          },
+          {
+            "content": "it",
+            "score": 0.23249039181421896
+          },
+          {
+            "content": "of",
+            "score": 0.6719465367077136
+          },
+          {
+            "content": "business",
+            "score": 0.5817441793128723
+          },
+          {
+            "content": "ibmcloud",
+            "score": 0.28343845495094144
+          }
+        ],
+        "tweet_id": 192969536784441340
+      },
+      {
+        "time": "Thu Apr 19 07:51:04 PDT 2012",
+        "words": [
+          {
+            "content": "what",
+            "score": 0.274856404823621
+          },
+          {
+            "content": "if",
+            "score": 0.38782945287524817
+          },
+          {
+            "content": "at",
+            "score": 0.18325814637483104
+          },
+          {
+            "content": "a",
+            "score": 0.43327782594619557
+          },
+          {
+            "content": "with",
+            "score": 0.16463259506569194
+          },
+          {
+            "content": "an",
+            "score": 0.274856404823621
+          },
+          {
+            "content": "and",
+            "score": 0.22114116130254005
+          },
+          {
+            "content": "an",
+            "score": 0.274856404823621
+          },
+          {
+            "content": "in",
+            "score": 0.3679467681699928
+          },
+          {
+            "content": "cloud",
+            "score": 1.2992829841302609
+          },
+          {
+            "content": "magic",
+            "score": 0.22094573364483505
+          },
+          {
+            "content": "ibmcloud",
+            "score": 0.28343845495094144
+          }
+        ],
+        "tweet_id": 192988692422467600
+      },
+      {
+        "time": "Thu Apr 19 08:31:24 PDT 2012",
+        "words": [
+          {
+            "content": "how",
+            "score": 0.2570522191403513
+          },
+          {
+            "content": "many",
+            "score": 0.19391472643762409
+          },
+          {
+            "content": "are",
+            "score": 0.11364987281589502
+          },
+          {
+            "content": "using",
+            "score": 0.34947184321501074
+          },
+          {
+            "content": "cloud",
+            "score": 1.2992829841302609
+          },
+          {
+            "content": "to",
+            "score": 0.3390513974210887
+          },
+          {
+            "content": "their",
+            "score": 0.19391472643762409
+          },
+          {
+            "content": "and",
+            "score": 0.22114116130254005
+          },
+          {
+            "content": "ibmcloud",
+            "score": 0.28343845495094144
+          }
+        ],
+        "tweet_id": 192998844269723650
+      },
+      {
+        "time": "Thu Apr 19 08:37:47 PDT 2012",
+        "words": [
+          {
+            "content": "i",
+            "score": 0.39959287851252745
+          },
+          {
+            "content": "use",
+            "score": 0.4418914672896701
+          },
+          {
+            "content": "tweetbot",
+            "score": 0.4418914672896701
+          },
+          {
+            "content": "make",
+            "score": 0.15985968485322471
+          },
+          {
+            "content": "sure",
+            "score": 0.4418914672896701
+          },
+          {
+            "content": "to",
+            "score": 0.3390513974210887
+          },
+          {
+            "content": "some",
+            "score": 0.14770491440029437
+          },
+          {
+            "content": "time",
+            "score": 0.7240434431585006
+          },
+          {
+            "content": "to",
+            "score": 0.3390513974210887
+          },
+          {
+            "content": "read",
+            "score": 0.22094573364483505
+          },
+          {
+            "content": "lots",
+            "score": 0.6628372009345052
+          },
+          {
+            "content": "of",
+            "score": 0.6719465367077136
+          },
+          {
+            "content": "really",
+            "score": 0.3620217215792503
+          }
+        ],
+        "tweet_id": 193000448775569400
+      },
+      {
+        "time": "Thu Apr 19 08:40:45 PDT 2012",
+        "words": [
+          {
+            "content": "tweetbot",
+            "score": 0.4418914672896701
+          },
+          {
+            "content": "i",
+            "score": 0.39959287851252745
+          },
+          {
+            "content": "still",
+            "score": 0.15985968485322471
+          },
+          {
+            "content": "out",
+            "score": 0.28847676555418683
+          },
+          {
+            "content": "things",
+            "score": 0.19391472643762409
+          },
+          {
+            "content": "but",
+            "score": 0.28847676555418683
+          },
+          {
+            "content": "can",
+            "score": 0.08661886560868406
+          },
+          {
+            "content": "certainly",
+            "score": 0.22094573364483505
+          },
+          {
+            "content": "you",
+            "score": 0.41158148766422986
+          }
+        ],
+        "tweet_id": 193001194409566200
+      },
+      {
+        "time": "Thu Apr 19 08:46:29 PDT 2012",
+        "words": [
+          {
+            "content": "you",
+            "score": 0.41158148766422986
+          },
+          {
+            "content": "on",
+            "score": 0.1282593761643492
+          },
+          {
+            "content": "again",
+            "score": 0.14770491440029437
+          },
+          {
+            "content": "i",
+            "score": 0.39959287851252745
+          },
+          {
+            "content": "got",
+            "score": 0.12852610957017566
+          },
+          {
+            "content": "this",
+            "score": 0.25985659682605217
+          },
+          {
+            "content": "time",
+            "score": 0.7240434431585006
+          }
+        ],
+        "tweet_id": 193002636608405500
+      },
+      {
+        "time": "Thu Apr 19 08:48:25 PDT 2012",
+        "words": [
+          {
+            "content": "book",
+            "score": 0.22094573364483505
+          },
+          {
+            "content": "late",
+            "score": 0.19391472643762409
+          }
+        ],
+        "tweet_id": 193003124686979070
+      },
+      {
+        "time": "Thu Apr 19 16:37:17 PDT 2012",
+        "words": [
+          {
+            "content": "that",
+            "score": 0.46964793647050196
+          },
+          {
+            "content": "what",
+            "score": 0.274856404823621
+          },
+          {
+            "content": "you",
+            "score": 0.41158148766422986
+          },
+          {
+            "content": "get",
+            "score": 0.12067390719308342
+          },
+          {
+            "content": "for",
+            "score": 0.3153829441457081
+          },
+          {
+            "content": "using",
+            "score": 0.34947184321501074
+          },
+          {
+            "content": "time",
+            "score": 0.7240434431585006
+          },
+          {
+            "content": "for",
+            "score": 0.3153829441457081
+          },
+          {
+            "content": "time",
+            "score": 0.7240434431585006
+          }
+        ],
+        "tweet_id": 193121118243143680
+      },
+      {
+        "time": "Fri Apr 20 05:59:57 PDT 2012",
+        "words": [
+          {
+            "content": "of",
+            "score": 0.6719465367077136
+          },
+          {
+            "content": "is",
+            "score": 0.1706766280655992
+          },
+          {
+            "content": "about",
+            "score": 0.3218875824868201
+          },
+          {
+            "content": "to",
+            "score": 0.3390513974210887
+          },
+          {
+            "content": "start",
+            "score": 0.38782945287524817
+          },
+          {
+            "content": "today",
+            "score": 0.4826956287723337
+          },
+          {
+            "content": "it",
+            "score": 0.23249039181421896
+          },
+          {
+            "content": "much",
+            "score": 0.15985968485322471
+          },
+          {
+            "content": "more",
+            "score": 0.274856404823621
+          },
+          {
+            "content": "about",
+            "score": 0.3218875824868201
+          },
+          {
+            "content": "technology",
+            "score": 0.4418914672896701
+          },
+          {
+            "content": "looking",
+            "score": 0.19391472643762409
+          },
+          {
+            "content": "forward",
+            "score": 0.22094573364483505
+          },
+          {
+            "content": "to",
+            "score": 0.3390513974210887
+          },
+          {
+            "content": "that",
+            "score": 0.46964793647050196
+          },
+          {
+            "content": "part",
+            "score": 0.19391472643762409
+          },
+          {
+            "content": "ibmcloud",
+            "score": 0.28343845495094144
+          },
+          {
+            "content": "cloud",
+            "score": 1.2992829841302609
+          }
+        ],
+        "tweet_id": 193323116880072700
+      },
+      {
+        "time": "Fri Apr 20 06:53:46 PDT 2012",
+        "words": [
+          {
+            "content": "nc",
+            "score": 0.34947184321501074
+          },
+          {
+            "content": "state",
+            "score": 0.22094573364483505
+          },
+          {
+            "content": "has",
+            "score": 0.47957905455967414
+          },
+          {
+            "content": "been",
+            "score": 0.31971936970644943
+          },
+          {
+            "content": "cloud",
+            "score": 1.2992829841302609
+          },
+          {
+            "content": "for",
+            "score": 0.3153829441457081
+          },
+          {
+            "content": "next",
+            "score": 0.19391472643762409
+          },
+          {
+            "content": "of",
+            "score": 0.6719465367077136
+          }
+        ],
+        "tweet_id": 193336658270236670
+      },
+      {
+        "time": "Fri Apr 20 08:26:28 PDT 2012",
+        "words": [
+          {
+            "content": "on",
+            "score": 0.1282593761643492
+          },
+          {
+            "content": "by",
+            "score": 0.14770491440029437
+          },
+          {
+            "content": "which",
+            "score": 0.22094573364483505
+          },
+          {
+            "content": "to",
+            "score": 0.3390513974210887
+          },
+          {
+            "content": "be",
+            "score": 0.12067390719308342
+          },
+          {
+            "content": "that",
+            "score": 0.46964793647050196
+          }
+        ],
+        "tweet_id": 193359989052674050
+      },
+      {
+        "time": "Fri Apr 20 12:00:19 PDT 2012",
+        "words": [
+          {
+            "content": "is",
+            "score": 0.1706766280655992
+          },
+          {
+            "content": "pretty",
+            "score": 0.22094573364483505
+          },
+          {
+            "content": "i",
+            "score": 0.39959287851252745
+          },
+          {
+            "content": "really",
+            "score": 0.3620217215792503
+          },
+          {
+            "content": "don",
+            "score": 0.31971936970644943
+          },
+          {
+            "content": "how",
+            "score": 0.2570522191403513
+          },
+          {
+            "content": "it",
+            "score": 0.23249039181421896
+          },
+          {
+            "content": "only",
+            "score": 0.29540982880058875
+          },
+          {
+            "content": "out",
+            "score": 0.28847676555418683
+          },
+          {
+            "content": "of",
+            "score": 0.6719465367077136
+          },
+          {
+            "content": "of",
+            "score": 0.6719465367077136
+          },
+          {
+            "content": "a",
+            "score": 0.43327782594619557
+          },
+          {
+            "content": "that",
+            "score": 0.46964793647050196
+          },
+          {
+            "content": "i",
+            "score": 0.39959287851252745
+          },
+          {
+            "content": "just",
+            "score": 0.549712809647242
+          },
+          {
+            "content": "fail",
+            "score": 0.07827465607841698
+          }
+        ],
+        "tweet_id": 193413804716077060
+      },
+      {
+        "time": "Sat Apr 21 04:27:50 PDT 2012",
+        "words": [
+          {
+            "content": "we",
+            "score": 0.15985968485322471
+          },
+          {
+            "content": "know",
+            "score": 0.29540982880058875
+          },
+          {
+            "content": "that",
+            "score": 0.46964793647050196
+          },
+          {
+            "content": "all",
+            "score": 0.27365517112344245
+          },
+          {
+            "content": "airplane",
+            "score": 0.22094573364483505
+          },
+          {
+            "content": "is",
+            "score": 0.1706766280655992
+          },
+          {
+            "content": "bad",
+            "score": 0.19391472643762409
+          },
+          {
+            "content": "but",
+            "score": 0.28847676555418683
+          },
+          {
+            "content": "this",
+            "score": 0.25985659682605217
+          },
+          {
+            "content": "must",
+            "score": 0.17473592160750537
+          },
+          {
+            "content": "have",
+            "score": 0.3620217215792503
+          },
+          {
+            "content": "been",
+            "score": 0.31971936970644943
+          },
+          {
+            "content": "i",
+            "score": 0.39959287851252745
+          },
+          {
+            "content": "had",
+            "score": 0.15985968485322471
+          }
+        ],
+        "tweet_id": 193662322278006800
+      },
+      {
+        "time": "Mon Apr 23 04:47:53 PDT 2012",
+        "words": [
+          {
+            "content": "my",
+            "score": 0.05812259795355474
+          },
+          {
+            "content": "new",
+            "score": 0.30448530708889415
+          },
+          {
+            "content": "today",
+            "score": 0.4826956287723337
+          },
+          {
+            "content": "times",
+            "score": 0.4418914672896701
+          }
+        ],
+        "tweet_id": 194392143245230080
+      }
+    ],
+    "word_count": 493,
+    "vad_score": [
+      6.040895522388062,
+      1.7726335917911147,
+      4.72641791044776,
+      2.345792995155242,
+      5.633432835820895,
+      2.07671705615938
+    ],
+    "tweet_number": 33,
+    "detail_d": [
+      0,
+      5.633684210526316,
+      0,
+      4.75,
+      6.572727272727272,
+      0,
+      0,
+      6.2188888888888885
+    ],
+    "emotion_extreme": false,
+    "detail_a": [
+      0,
+      4.721052631578947,
+      0,
+      5.281428571428571,
+      5.8518181818181825,
+      0,
+      0,
+      4.887777777777778
+    ]
+  },
+  {
+    "emotion_resilience": false,
+    "emotion_outlook": true,
+    "time": [
+      "Sun Apr 29 15:28:10 PDT 2012",
+      "Mon Apr 30 12:35:23 PDT 2012"
+    ],
+    "mood_score": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      6,
+      8,
+      4
+    ],
+    "detail_v": [
+      0,
+      0,
+      0,
+      0,
+      7.77,
+      3.32,
+      7.77,
+      6.05
+    ],
+    "tfidf": [
+      {
+        "time": "Sun Apr 29 15:28:10 PDT 2012",
+        "words": [
+          {
+            "content": "on",
+            "score": 0.09619453212326191
+          },
+          {
+            "content": "my",
+            "score": 0.3487355877213285
+          },
+          {
+            "content": "way",
+            "score": 0.5242077648225161
+          },
+          {
+            "content": "to",
+            "score": 0.42381424677636087
+          },
+          {
+            "content": "las",
+            "score": 0.5242077648225161
+          },
+          {
+            "content": "vegas",
+            "score": 0.5817441793128723
+          },
+          {
+            "content": "for",
+            "score": 0.3153829441457081
+          },
+          {
+            "content": "ibmimpact",
+            "score": 3.3141860046725258
+          },
+          {
+            "content": "looking",
+            "score": 0.5817441793128723
+          },
+          {
+            "content": "forward",
+            "score": 0.6628372009345052
+          },
+          {
+            "content": "to",
+            "score": 0.42381424677636087
+          },
+          {
+            "content": "many",
+            "score": 1.1634883586257445
+          },
+          {
+            "content": "many",
+            "score": 1.1634883586257445
+          },
+          {
+            "content": "old",
+            "score": 0.6628372009345052
+          },
+          {
+            "content": "friends",
+            "score": 0.6628372009345052
+          }
+        ],
+        "tweet_id": 196727604131282940
+      },
+      {
+        "time": "Sun Apr 29 15:47:33 PDT 2012",
+        "words": [
+          {
+            "content": "sweet",
+            "score": 0.5817441793128723
+          },
+          {
+            "content": "just",
+            "score": 0.4122846072354316
+          }
+        ],
+        "tweet_id": 196732483440607230
+      },
+      {
+        "time": "Sun Apr 29 19:06:47 PDT 2012",
+        "words": [
+          {
+            "content": "anyone",
+            "score": 0.6628372009345052
+          },
+          {
+            "content": "know",
+            "score": 0.4431147432008832
+          },
+          {
+            "content": "how",
+            "score": 0.771156657421054
+          },
+          {
+            "content": "late",
+            "score": 0.5817441793128723
+          },
+          {
+            "content": "ibmimpact",
+            "score": 3.3141860046725258
+          },
+          {
+            "content": "is",
+            "score": 0.25601494209839876
+          },
+          {
+            "content": "open",
+            "score": 0.5242077648225161
+          }
+        ],
+        "tweet_id": 196782621991247870
+      },
+      {
+        "time": "Mon Apr 30 08:11:25 PDT 2012",
+        "words": [
+          {
+            "content": "ibmimpact",
+            "score": 3.3141860046725258
+          },
+          {
+            "content": "for",
+            "score": 0.3153829441457081
+          },
+          {
+            "content": "part",
+            "score": 0.5817441793128723
+          },
+          {
+            "content": "of",
+            "score": 0.3665162927496621
+          },
+          {
+            "content": "my",
+            "score": 0.3487355877213285
+          },
+          {
+            "content": "cloud",
+            "score": 0.7795697904781566
+          },
+          {
+            "content": "session",
+            "score": 0.6628372009345052
+          },
+          {
+            "content": "about",
+            "score": 0.9656627474604601
+          },
+          {
+            "content": "to",
+            "score": 0.42381424677636087
+          }
+        ],
+        "tweet_id": 196980079451045900
+      },
+      {
+        "time": "Mon Apr 30 10:48:32 PDT 2012",
+        "words": [
+          {
+            "content": "to",
+            "score": 0.42381424677636087
+          },
+          {
+            "content": "on",
+            "score": 0.09619453212326191
+          },
+          {
+            "content": "application",
+            "score": 0.5817441793128723
+          },
+          {
+            "content": "system",
+            "score": 0.6628372009345052
+          },
+          {
+            "content": "ibmimpact",
+            "score": 3.3141860046725258
+          }
+        ],
+        "tweet_id": 197019618865455100
+      },
+      {
+        "time": "Mon Apr 30 12:22:40 PDT 2012",
+        "words": [
+          {
+            "content": "how",
+            "score": 0.771156657421054
+          },
+          {
+            "content": "long",
+            "score": 0.6628372009345052
+          },
+          {
+            "content": "is",
+            "score": 0.25601494209839876
+          }
+        ],
+        "tweet_id": 197043310232207360
+      },
+      {
+        "time": "Mon Apr 30 12:23:38 PDT 2012",
+        "words": [
+          {
+            "content": "to",
+            "score": 0.42381424677636087
+          },
+          {
+            "content": "of",
+            "score": 0.3665162927496621
+          },
+          {
+            "content": "talk",
+            "score": 0.6628372009345052
+          },
+          {
+            "content": "about",
+            "score": 0.9656627474604601
+          },
+          {
+            "content": "in",
+            "score": 0.15769147207285406
+          },
+          {
+            "content": "cloud",
+            "score": 0.7795697904781566
+          },
+          {
+            "content": "ibmimpact",
+            "score": 3.3141860046725258
+          },
+          {
+            "content": "cloud",
+            "score": 0.7795697904781566
+          }
+        ],
+        "tweet_id": 197043553627676670
+      },
+      {
+        "time": "Mon Apr 30 12:34:23 PDT 2012",
+        "words": [
+          {
+            "content": "thank",
+            "score": 0.6628372009345052
+          },
+          {
+            "content": "you",
+            "score": 0.24694889259853792
+          }
+        ],
+        "tweet_id": 197046257276026880
+      },
+      {
+        "time": "Mon Apr 30 12:35:23 PDT 2012",
+        "words": [
+          {
+            "content": "sure",
+            "score": 0.6628372009345052
+          },
+          {
+            "content": "if",
+            "score": 0.5817441793128723
+          },
+          {
+            "content": "i",
+            "score": 0.14984732944219778
+          },
+          {
+            "content": "can",
+            "score": 0.25985659682605217
+          },
+          {
+            "content": "any",
+            "score": 0.4431147432008832
+          },
+          {
+            "content": "questions",
+            "score": 0.6628372009345052
+          },
+          {
+            "content": "he",
+            "score": 0.6628372009345052
+          },
+          {
+            "content": "may",
+            "score": 0.5817441793128723
+          },
+          {
+            "content": "have",
+            "score": 0.3620217215792503
+          },
+          {
+            "content": "about",
+            "score": 0.9656627474604601
+          },
+          {
+            "content": "socbiz",
+            "score": 0.47957905455967414
+          },
+          {
+            "content": "or",
+            "score": 0.47957905455967414
+          },
+          {
+            "content": "ibmcloud",
+            "score": 0.2125788412132061
+          }
+        ],
+        "tweet_id": 197046511031427070
+      }
+    ],
+    "word_count": 95,
+    "vad_score": [
+      5.768571428571428,
+      1.5737897844738622,
+      4.485714285714286,
+      2.321458900900774,
+      5.326428571428571,
+      2.071524628314683
+    ],
+    "tweet_number": 9,
+    "detail_d": [
+      0,
+      0,
+      0,
+      0,
+      6.12,
+      4.22,
+      6.12,
+      5.421666666666666
+    ],
+    "emotion_extreme": false,
+    "detail_a": [
+      0,
+      0,
+      0,
+      0,
+      4.14,
+      5.57,
+      4.14,
+      4.365
+    ]
+  },
+  {
+    "emotion_resilience": false,
+    "emotion_outlook": true,
+    "time": [
+      "Fri May 04 09:58:42 PDT 2012",
+      "Fri May 04 15:00:32 PDT 2012"
+    ],
+    "mood_score": [
+      0,
+      4,
+      0,
+      0,
+      1,
+      0,
+      0,
+      2,
+      3,
+      0
+    ],
+    "detail_v": [
+      0,
+      5.754999999999999,
+      0,
+      0,
+      7.91,
+      0,
+      0,
+      6.38
+    ],
+    "tfidf": [
+      {
+        "time": "Fri May 04 09:58:42 PDT 2012",
+        "words": [
+          {
+            "content": "in",
+            "score": 0.2628191201214234
+          },
+          {
+            "content": "during",
+            "score": 1.1047286682241753
+          },
+          {
+            "content": "ibmimpact",
+            "score": 1.1047286682241753
+          },
+          {
+            "content": "now",
+            "score": 0.3913732803920849
+          },
+          {
+            "content": "on",
+            "score": 0.48097266061630956
+          },
+          {
+            "content": "way",
+            "score": 0.8736796080375268
+          },
+          {
+            "content": "home",
+            "score": 1.1047286682241753
+          },
+          {
+            "content": "it",
+            "score": 0.8718389693033212
+          },
+          {
+            "content": "was",
+            "score": 0.7992984242661235
+          },
+          {
+            "content": "a",
+            "score": 0.36106485495516294
+          },
+          {
+            "content": "great",
+            "score": 0.6871410120590525
+          },
+          {
+            "content": "conference",
+            "score": 0.9695736321881203
+          },
+          {
+            "content": "a",
+            "score": 0.36106485495516294
+          },
+          {
+            "content": "about",
+            "score": 0.5364793041447
+          },
+          {
+            "content": "ibmcloud",
+            "score": 0.7085961373773536
+          }
+        ],
+        "tweet_id": 198456629316956160
+      },
+      {
+        "time": "Fri May 04 10:00:34 PDT 2012",
+        "words": [
+          {
+            "content": "ibmcloud",
+            "score": 0.7085961373773536
+          },
+          {
+            "content": "yes",
+            "score": 1.1047286682241753
+          },
+          {
+            "content": "to",
+            "score": 0.28254283118424056
+          },
+          {
+            "content": "on",
+            "score": 0.48097266061630956
+          },
+          {
+            "content": "rather",
+            "score": 0.9695736321881203
+          },
+          {
+            "content": "than",
+            "score": 0.8736796080375268
+          },
+          {
+            "content": "twitter",
+            "score": 0.8736796080375268
+          },
+          {
+            "content": "this",
+            "score": 0.4330943280434203
+          },
+          {
+            "content": "time",
+            "score": 0.6033695359654171
+          },
+          {
+            "content": "around",
+            "score": 1.1047286682241753
+          },
+          {
+            "content": "ibmimpact",
+            "score": 1.1047286682241753
+          }
+        ],
+        "tweet_id": 198457101130006530
+      },
+      {
+        "time": "Fri May 04 14:52:20 PDT 2012",
+        "words": [
+          {
+            "content": "i",
+            "score": 0.4994910981406593
+          },
+          {
+            "content": "thought",
+            "score": 0.9695736321881203
+          },
+          {
+            "content": "i",
+            "score": 0.4994910981406593
+          },
+          {
+            "content": "had",
+            "score": 0.7992984242661235
+          },
+          {
+            "content": "it",
+            "score": 0.8718389693033212
+          },
+          {
+            "content": "all",
+            "score": 0.4560919518724041
+          },
+          {
+            "content": "but",
+            "score": 0.48079460925697803
+          },
+          {
+            "content": "can",
+            "score": 0.4330943280434203
+          },
+          {
+            "content": "it",
+            "score": 0.8718389693033212
+          },
+          {
+            "content": "on",
+            "score": 0.48097266061630956
+          },
+          {
+            "content": "is",
+            "score": 0.42669157016399795
+          },
+          {
+            "content": "new",
+            "score": 0.5074755118148235
+          },
+          {
+            "content": "to",
+            "score": 0.28254283118424056
+          },
+          {
+            "content": "americanair",
+            "score": 1.4770491440029438
+          }
+        ],
+        "tweet_id": 198530524480938000
+      },
+      {
+        "time": "Fri May 04 15:00:32 PDT 2012",
+        "words": [
+          {
+            "content": "americanair",
+            "score": 1.4770491440029438
+          },
+          {
+            "content": "no",
+            "score": 0.6033695359654171
+          },
+          {
+            "content": "at",
+            "score": 0.3054302439580517
+          },
+          {
+            "content": "i",
+            "score": 0.4994910981406593
+          },
+          {
+            "content": "know",
+            "score": 0.7385245720014719
+          },
+          {
+            "content": "is",
+            "score": 0.42669157016399795
+          },
+          {
+            "content": "fantastic",
+            "score": 0.7992984242661235
+          },
+          {
+            "content": "as",
+            "score": 0.6871410120590525
+          },
+          {
+            "content": "from",
+            "score": 0.7385245720014719
+          },
+          {
+            "content": "las",
+            "score": 0.8736796080375268
+          }
+        ],
+        "tweet_id": 198532590959988740
+      }
+    ],
+    "word_count": 69,
+    "vad_score": [
+      6.094444444444444,
+      1.6271788811040757,
+      4.083333333333333,
+      2.289541438803849,
+      5.658888888888888,
+      2.2033156832374248
+    ],
+    "tweet_number": 4,
+    "detail_d": [
+      0,
+      5.312500000000001,
+      0,
+      0,
+      5.9,
+      0,
+      0,
+      5.95
+    ],
+    "emotion_extreme": false,
+    "detail_a": [
+      0,
+      3.6525,
+      0,
+      0,
+      4.21,
+      0,
+      0,
+      4.574999999999999
+    ]
+  },
+  {
+    "emotion_resilience": false,
+    "emotion_outlook": false,
+    "time": [
+      "Tue May 08 19:15:56 PDT 2012",
+      "Fri May 11 06:33:32 PDT 2012"
+    ],
+    "mood_score": [
+      2,
+      0,
+      0,
+      2,
+      2,
+      2,
+      0,
+      0,
+      4,
+      3
+    ],
+    "detail_v": [
+      2.74,
+      0,
+      0,
+      4.435,
+      7.715,
+      2.74,
+      0,
+      0
+    ],
+    "tfidf": [
+      {
+        "time": "Tue May 08 19:15:56 PDT 2012",
+        "words": [
+          {
+            "content": "i",
+            "score": 0.37461832360549446
+          },
+          {
+            "content": "am",
+            "score": 1.3105194120562902
+          },
+          {
+            "content": "actually",
+            "score": 1.3105194120562902
+          },
+          {
+            "content": "for",
+            "score": 0.7884573603642703
+          },
+          {
+            "content": "having",
+            "score": 1.3105194120562902
+          },
+          {
+            "content": "state",
+            "score": 3.3141860046725258
+          },
+          {
+            "content": "of",
+            "score": 0.45814536593707755
+          },
+          {
+            "content": "carolina",
+            "score": 1.6570930023362629
+          },
+          {
+            "content": "as",
+            "score": 2.0614230361771577
+          },
+          {
+            "content": "my",
+            "score": 0.8718389693033212
+          },
+          {
+            "content": "home",
+            "score": 1.6570930023362629
+          },
+          {
+            "content": "state",
+            "score": 3.3141860046725258
+          },
+          {
+            "content": "what",
+            "score": 1.0307115180885789
+          },
+          {
+            "content": "a",
+            "score": 0.2707986412163722
+          }
+        ],
+        "tweet_id": 200046413885870080
+      },
+      {
+        "time": "Wed May 09 15:00:01 PDT 2012",
+        "words": [
+          {
+            "content": "my",
+            "score": 0.8718389693033212
+          },
+          {
+            "content": "to",
+            "score": 0.21190712338818044
+          },
+          {
+            "content": "os",
+            "score": 1.3105194120562902
+          },
+          {
+            "content": "x",
+            "score": 1.3105194120562902
+          },
+          {
+            "content": "lion",
+            "score": 1.4543604482821806
+          }
+        ],
+        "tweet_id": 200344397894791170
+      },
+      {
+        "time": "Wed May 09 15:18:49 PDT 2012",
+        "words": [
+          {
+            "content": "like",
+            "score": 1.1989476363991853
+          },
+          {
+            "content": "its",
+            "score": 1.6570930023362629
+          },
+          {
+            "content": "day",
+            "score": 1.1077868580022079
+          },
+          {
+            "content": "today",
+            "score": 0.9050543039481257
+          },
+          {
+            "content": "new",
+            "score": 0.7612132677222353
+          },
+          {
+            "content": "office",
+            "score": 1.6570930023362629
+          },
+          {
+            "content": "out",
+            "score": 0.7211919138854671
+          },
+          {
+            "content": "for",
+            "score": 0.7884573603642703
+          },
+          {
+            "content": "mac",
+            "score": 0.9050543039481257
+          },
+          {
+            "content": "as",
+            "score": 2.0614230361771577
+          },
+          {
+            "content": "well",
+            "score": 1.1989476363991853
+          },
+          {
+            "content": "all",
+            "score": 0.6841379278086062
+          }
+        ],
+        "tweet_id": 200349129212309500
+      },
+      {
+        "time": "Fri May 11 06:33:32 PDT 2012",
+        "words": [
+          {
+            "content": "in",
+            "score": 0.39422868018213514
+          },
+          {
+            "content": "nc",
+            "score": 1.3105194120562902
+          },
+          {
+            "content": "service",
+            "score": 1.4543604482821806
+          },
+          {
+            "content": "and",
+            "score": 0.4146396774422626
+          },
+          {
+            "content": "are",
+            "score": 0.8523740461192126
+          },
+          {
+            "content": "now",
+            "score": 0.5870599205881274
+          },
+          {
+            "content": "on",
+            "score": 0.24048633030815478
+          },
+          {
+            "content": "twitter",
+            "score": 1.3105194120562902
+          }
+        ],
+        "tweet_id": 200941712531652600
+      }
+    ],
+    "word_count": 62,
+    "vad_score": [
+      5.47,
+      1.5773910421959418,
+      4.7749999999999995,
+      2.2859762684682443,
+      4.7787500000000005,
+      2.1385655238968013
+    ],
+    "tweet_number": 4,
+    "detail_d": [
+      3.0949999999999998,
+      0,
+      0,
+      3.865,
+      5.655,
+      3.0949999999999998,
+      0,
+      0
+    ],
+    "emotion_extreme": false,
+    "detail_a": [
+      5.075,
+      0,
+      0,
+      5.58,
+      5.42,
+      5.075,
+      0,
+      0
+    ]
+  },
+  {
+    "emotion_resilience": false,
+    "emotion_outlook": true,
+    "time": [
+      "Wed May 16 10:33:42 PDT 2012",
+      "Thu May 17 06:55:30 PDT 2012"
+    ],
+    "mood_score": [
+      0,
+      1,
+      0,
+      0,
+      2,
+      0,
+      0,
+      2,
+      8,
+      0
+    ],
+    "detail_v": [
+      0,
+      5.74,
+      0,
+      0,
+      6.67,
+      0,
+      0,
+      6.16
+    ],
+    "tfidf": [
+      {
+        "time": "Wed May 16 10:33:42 PDT 2012",
+        "words": [
+          {
+            "content": "my",
+            "score": 0.17436779386066426
+          },
+          {
+            "content": "ibm",
+            "score": 0.7408466777956138
+          },
+          {
+            "content": "smartcloud",
+            "score": 0.34094961844768507
+          },
+          {
+            "content": "enterprise",
+            "score": 0.4122846072354316
+          },
+          {
+            "content": "account",
+            "score": 0.6628372009345052
+          },
+          {
+            "content": "first",
+            "score": 0.5242077648225161
+          },
+          {
+            "content": "image",
+            "score": 0.6628372009345052
+          },
+          {
+            "content": "up",
+            "score": 0.3620217215792503
+          },
+          {
+            "content": "and",
+            "score": 0.3317117419538101
+          },
+          {
+            "content": "and",
+            "score": 0.3317117419538101
+          },
+          {
+            "content": "through",
+            "score": 1.1634883586257445
+          },
+          {
+            "content": "ibmcloud",
+            "score": 1.0628942060660305
+          },
+          {
+            "content": "cloud",
+            "score": 1.2992829841302609
+          }
+        ],
+        "tweet_id": 202814091004358660
+      },
+      {
+        "time": "Wed May 16 10:53:43 PDT 2012",
+        "words": [
+          {
+            "content": "there",
+            "score": 0.4122846072354316
+          },
+          {
+            "content": "a",
+            "score": 0.10831945648654889
+          },
+          {
+            "content": "right",
+            "score": 0.6628372009345052
+          },
+          {
+            "content": "now",
+            "score": 0.23482396823525098
+          },
+          {
+            "content": "ibmcloud",
+            "score": 1.0628942060660305
+          },
+          {
+            "content": "cloud",
+            "score": 1.2992829841302609
+          }
+        ],
+        "tweet_id": 202819129936314370
+      },
+      {
+        "time": "Thu May 17 06:33:26 PDT 2012",
+        "words": [
+          {
+            "content": "ibm",
+            "score": 0.7408466777956138
+          },
+          {
+            "content": "cloud",
+            "score": 1.2992829841302609
+          },
+          {
+            "content": "in",
+            "score": 0.15769147207285406
+          },
+          {
+            "content": "chicago",
+            "score": 0.6628372009345052
+          },
+          {
+            "content": "ibmcloud",
+            "score": 1.0628942060660305
+          },
+          {
+            "content": "cloud",
+            "score": 1.2992829841302609
+          },
+          {
+            "content": "lifelonglearning",
+            "score": 0.6628372009345052
+          }
+        ],
+        "tweet_id": 203116015276666880
+      },
+      {
+        "time": "Thu May 17 06:47:53 PDT 2012",
+        "words": [
+          {
+            "content": "did",
+            "score": 0.6628372009345052
+          },
+          {
+            "content": "you",
+            "score": 0.24694889259853792
+          },
+          {
+            "content": "know",
+            "score": 0.4431147432008832
+          },
+          {
+            "content": "client",
+            "score": 0.6628372009345052
+          },
+          {
+            "content": "are",
+            "score": 0.34094961844768507
+          },
+          {
+            "content": "through",
+            "score": 1.1634883586257445
+          },
+          {
+            "content": "ibmcloud",
+            "score": 1.0628942060660305
+          },
+          {
+            "content": "cloud",
+            "score": 1.2992829841302609
+          }
+        ],
+        "tweet_id": 203119653415956480
+      },
+      {
+        "time": "Thu May 17 06:55:30 PDT 2012",
+        "words": [
+          {
+            "content": "lots",
+            "score": 0.6628372009345052
+          },
+          {
+            "content": "of",
+            "score": 0.18325814637483104
+          },
+          {
+            "content": "at",
+            "score": 0.18325814637483104
+          },
+          {
+            "content": "ibm",
+            "score": 0.7408466777956138
+          },
+          {
+            "content": "cloud",
+            "score": 1.2992829841302609
+          },
+          {
+            "content": "will",
+            "score": 0.4431147432008832
+          },
+          {
+            "content": "be",
+            "score": 0.3620217215792503
+          },
+          {
+            "content": "business",
+            "score": 0.5817441793128723
+          },
+          {
+            "content": "ibmcloud",
+            "score": 1.0628942060660305
+          }
+        ],
+        "tweet_id": 203121568262529020
+      }
+    ],
+    "word_count": 78,
+    "vad_score": [
+      6.573,
+      1.803238752910995,
+      5.303000000000001,
+      2.3891462910420533,
+      6.260000000000001,
+      2.153789683325649
+    ],
+    "tweet_number": 5,
+    "detail_d": [
+      0,
+      5.38,
+      0,
+      0,
+      6.795,
+      0,
+      0,
+      5.98
+    ],
+    "emotion_extreme": true,
+    "detail_a": [
+      0,
+      4.2,
+      0,
+      0,
+      5.465,
+      0,
+      0,
+      4.765
+    ]
+  },
+  {
+    "emotion_resilience": true,
+    "emotion_outlook": false,
+    "time": [
+      "Wed Aug 14 11:36:56 PDT 2013",
+      "Wed Aug 14 11:36:56 PDT 2013"
+    ],
+    "mood_score": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1
+    ],
+    "detail_v": [
+      1.79,
+      0,
+      0,
+      1.79,
+      0,
+      1.79,
+      0,
+      0
+    ],
+    "tfidf": [
+      {
+        "time": "Wed Aug 14 11:36:56 PDT 2013",
+        "words": [
+          {
+            "content": "americanair",
+            "score": 2.2155737160044158
+          },
+          {
+            "content": "are",
+            "score": 1.7047480922384253
+          },
+          {
+            "content": "you",
+            "score": 1.2347444629926896
+          },
+          {
+            "content": "guys",
+            "score": 3.3141860046725258
+          },
+          {
+            "content": "kidding",
+            "score": 3.3141860046725258
+          },
+          {
+            "content": "offering",
+            "score": 2.908720896564361
+          },
+          {
+            "content": "this",
+            "score": 1.2992829841302609
+          },
+          {
+            "content": "to",
+            "score": 0.42381424677636087
+          },
+          {
+            "content": "new",
+            "score": 1.5224265354444706
+          },
+          {
+            "content": "and",
+            "score": 0.8292793548845252
+          },
+          {
+            "content": "not",
+            "score": 1.4423838277709342
+          },
+          {
+            "content": "ones",
+            "score": 3.3141860046725258
+          },
+          {
+            "content": "fail",
+            "score": 1.1741198411762548
+          }
+        ],
+        "tweet_id": 367716483440578560
+      }
+    ],
+    "word_count": 18,
+    "vad_score": [
+      1.79,
+      1.74,
+      6.31,
+      2.84,
+      3.31,
+      2.77
+    ],
+    "tweet_number": 1,
+    "detail_d": [
+      3.31,
+      0,
+      0,
+      3.31,
+      0,
+      3.31,
+      0,
+      0
+    ],
+    "emotion_extreme": true,
+    "detail_a": [
+      6.31,
+      0,
+      0,
+      6.31,
+      0,
+      6.31,
+      0,
+      0
+    ]
+  }
+]

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="demo"></div>
+
+<style type="text/css">
+  .textbox {
+  border-top: 1px solid steelblue;
+  border-bottom: 1px solid steelblue;
+  margin: 2px auto;
+  width: 580px;
+}
+
+.textbox:hover,
+.textbox.highlight {
+  background: #FFCC99;
+}
+
+.textbox.select {
+  border-radius: 3px;
+  border: 2px solid black;
+}
+
+.textbox p {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 12px;
+  text-align: left;
+  padding: 2px 4px;
+  margin: 0px;
+}
+
+.textbox .timep {
+  font-style: italic;
+  font-family: sans-serif;
+}
+</style>
+
+<script>
+
+var data = [
+    {"tweet":"This is one tweet"},
+    {"tweet":"This is next tweet"},
+    {"tweet":"This is next tweet"},
+    {"tweet":"This is next tweet"},
+    {"tweet":"This is next tweet"},
+    {"tweet":"This is next tweet"},
+    {"tweet":"This is last tweet"}
+];
+
+
+  var x, txt = "";
+  
+      for (x in data) {
+        console.log("Data", data[x].tweet);
+        txt += "<div class=\"textbox\" border='1'>"
+        txt += "<p>" + data[x].tweet + "</p>";
+        txt += "<p class=\"timep\">" + "Date of the tweet" + "</p>";
+        txt += "</div>"   
+      }
+      console.log(txt)     
+      document.getElementById("demo").innerHTML = txt;
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+[
+  {
+    "id": "id1",
+    "value": 0.8,
+    "value2": "2013-10-18",
+    "more": [
+      {
+        "more1": "first",
+        "more2": 70
+      },
+      {
+        "more1": "second",
+        "more2": 30
+      }
+    ]
+  },
+  {
+    "id": "id2",
+    "value": 0.4,
+    "value2": "2013-10-24",
+    "more": [
+      {
+        "more1": "first",
+        "more2": 50
+      },
+      {
+        "more1": "second",
+        "more2": 50
+      }
+    ]
+  },
+  {
+    "id": "id3",
+    "value": 0.4,
+    "value2": "2013-10-28",
+    "more": [
+      {
+        "more1": "first",
+        "more2": 25
+      },
+      {
+        "more1": "second",
+        "more2": 25
+      },
+      {
+        "more1": "third",
+        "more2": 25
+      },
+      {
+        "more1": "fouth",
+        "more2": 25
+      }
+    ]
+  },
+  {
+    "id": "id4",
+    "value": 0.5,
+    "value2": "2013-11-04",
+    "more": [
+      {
+        "more1": "first",
+        "more2": 50
+      },
+      {
+        "more1": "second",
+        "more2": 50
+      }
+    ]
+  },
+  {
+    "id": "id5",
+    "value": 0.4,
+    "value2": "2013-11-11",
+    "more": [
+      {
+        "more1": "first",
+        "more2": 100
+      }
+    ]
+  },
+  {
+    "id": "id6",
+    "value": 0.1,
+    "value2": "2013-11-18",
+    "more": [
+      {
+        "more1": "first",
+        "more2": 60
+      },
+      {
+        "more1": "second",
+        "more2": 40
+      }
+    ]
+  },
+  {
+    "id": "id7",
+    "value": 0.1,
+    "value2": "2013-11-25",
+    "more": [
+      {
+        "more1": "first",
+        "more2": 50
+      },
+      {
+        "more1": "second",
+        "more2": 50
+      }
+    ]
+  }
+]

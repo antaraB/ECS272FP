@@ -1,0 +1,19 @@
+PROJECT 3 | Prerit Auti and Antara Bhowmick
+
+Milestone:
+
+Tasks completed:
+
+> Downloading Twitter data
+> Downloading NRC, ANEW and WordNet lexicons
+> Pre-processing (cleaning, stemming) raw tweet data
+> Emotion analysis: constructing an 8x4 Basic_emotion matrix for each tweet
+> Timeline visualization
+> Scatterplot visualization 
+
+In progress:
+
+> Mood analysis: clustering
+> Raw tweet visualization
+
+Note : Please note that the visulization are implemented using dummy data and currently none of the visualization have been integrated together. 
