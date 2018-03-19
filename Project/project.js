@@ -133,25 +133,49 @@
       // var divtooltip
       //console.log("Mouse hovering on rect");
       divtooltip.transition()
-                .duration(500)  
-                .style("opacity", 0);
-            divtooltip.transition()
-                .duration(200)  
+      .duration(500)  
+      .style("opacity", 0);
+      divtooltip.transition()
+      .duration(200)  
                 //.style("display", "block")
                 .style("visibility", "visible")
                 .style("opacity", .9);
-              divtooltip.html(drawtagcloud("hello.json",0))
+
+                divtooltip.html(drawtagcloud("hello.json",0))
                 .style("left", (d3.event.pageX) + "px")          
-        .style("top", (d3.event.pageY - 28) + "px");
-    }).on("mouseout", function(m) {
+                .style("top", (d3.event.pageY - 28) + "px");
+
+                 focus.select(".hovtime").attr("visibility","visible").attr("y",350).attr("x",x(m.startdate) - 30)
+                .text(m.startdate.getFullYear() + '-' + (m.startdate.getMonth() + 1) + '-' + m.startdate.getDate());
+
+                focus.select(".hovline").attr("visibility","visible")
+                  .attr("x1", x(m.startdate))
+                  .attr("x2", x(m.startdate))
+                  .attr("y1", 370)
+                  .attr("y2", 0 );
+    })
+    .on("mouseout", function(m) {
       //console.log("Mouse hovering out on rect");
       divtooltip.transition()        
-        .duration(500)   
-        .style("visibility", "hidden")   
-        .style("opacity", 0);
-      divtooltip.selectAll("*").remove()  
-    }).on("click", function(n, m) {
+      .duration(500)   
+      .style("visibility", "hidden")   
+      .style("opacity", 0);
+      divtooltip.selectAll("*").remove(); 
+
+      focus.select(".hovtime").attr("visibility","hidden");
+
+      focus.select(".hovline").attr("visibility","hidden");
+
+    })
+    .on("click", function(n, m) {
       console.log("clickeddd clusterid",m);
+
+      focus.select(".selline").attr("visibility", "visible")
+        .attr("x1", x(n.startdate))
+        .attr("x2", x(n.startdate))
+        .attr("y1", 370)
+        .attr("y2", 0 );
+
       getScatterplotData(m);
       getRawTweetData(m);
     });
@@ -334,8 +358,8 @@
       .on("mouseover", function(d) {
         // console.log("before mouse hover" ,d);
         if(d.depth == 1){
-          console.log("Mouse hovering on circle");
-          console.log(d); 
+          //console.log("Mouse hovering on circle");
+          //console.log(d); 
         divtooltip.transition()
         .duration(500)  
         .style("opacity", 0);
@@ -356,7 +380,7 @@
       //TO DO : show the current date 
     }).on("mouseout", function(m) {
       if(m.depth == 1){
-        console.log("Mouse hovering out on circle");
+        //console.log("Mouse hovering out on circle");
       divtooltip.transition()        
       .duration(500)   
       .style("visibility", "hidden")   
@@ -368,7 +392,7 @@
       //TO DO : hide the current date 
     }).on("click", function(n, m) {
       if(n.depth == 1){
-        console.log("clickeddd clusterid2",m);
+        //console.log("clickeddd clusterid2",m);
         getScatterplotData(m);
         getRawTweetData(m);
       }
@@ -409,8 +433,11 @@
 
     /////////////////////////
 
-  focus.append("text").attr("class", "y axislabel").attr("x", 8).attr("y", 8).text("Valence");
+  focus.append("line").attr("class", "selline");
+  focus.append("line").attr("class", "hovline").attr("y1", 0).attr("y2", 262 - 20).attr("visibility", "hidden");
+  focus.append("text").attr("class", "hovtime").attr("y", 262 - 10).attr("visibility", "hidden");
 
+  focus.append("text").attr("class", "y axislabel").attr("x", 8).attr("y", 8).text("Valence");
   focus.append("text").attr("class", "yt axislabel").attr("x", 1150 - 60).attr("y", 8).text("Tweets");
 
 

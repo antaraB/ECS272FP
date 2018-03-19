@@ -54,7 +54,7 @@ d3.json(selectedFilename + "_scatter.json", function(error, datascatter) {
   if (error) throw error;
   //console.log((datascatter[clusterId]));
   
-  var keys=datascatter[0];
+  var keys=datascatter[clusterId];
   var tweetwords=[]
   // For each tweetID, 
   keys.forEach(function(tweetID) {
@@ -78,7 +78,7 @@ d3.json(selectedFilename + "_scatter.json", function(error, datascatter) {
     .attr("id", function (d,i) { return "chart"+i; })
     .append("g").attr("class","pies")
     .on("mouseover",function(d){
-      console.log("Points being hovered ", d);
+      //console.log("Points being hovered ", d);
       d3.select(this).attr("stroke","black")
       divtooltip.transition()
         .duration(500)  
@@ -91,7 +91,7 @@ d3.json(selectedFilename + "_scatter.json", function(error, datascatter) {
       var sum = 0;
       html = '<p><em>'+d.word+'</em></p> <p><strong>valence</strong> ' + d.vad[0] + '</p> <p><strong>arousal</strong> ' + d.vad[1] + '</p> <p><strong>dominance</strong> ' + d.vad[2] + '</p> <p><strong>emotion</strong> ';
       d.emotions.forEach(function(val,i) {
-        console.log(d,i,val);
+        //console.log(d,i,val);
                 if (val!= 0 && i< 8) {
                     html = html + emotion_name[i] + " ";
                 }})
