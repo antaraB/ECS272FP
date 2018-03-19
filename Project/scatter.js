@@ -1,3 +1,10 @@
+
+
+function getScatterplotData(clusterId){
+  console.log("inside the getScatterplotData")
+}
+
+
 var svg2 = d3.select("#scatter"),
     margin = {top: 10, right: 10, bottom: 10, left: 10},
     widthscatter = +svg2.attr("width"),

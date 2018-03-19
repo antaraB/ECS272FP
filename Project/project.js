@@ -7,7 +7,9 @@
   var height2 = +svg.attr('height') - margin2.top - margin2.bottom;
 
   // We need to parse the time of our data
-  var parseDate = d3.timeParse('%Y-%m-%d');
+  var parseDate = d3.timeParse('%Y-%m-%d %H:%M:%S');
+  var divtooltip = d3.select('#tooltip');
+
 
   // Next, we define the scales for our barchart
   var x = d3.scaleTime().range([0, width]);
@@ -30,24 +32,24 @@
   // Add area
   var area = d3.area()
   .curve(d3.curveMonotoneX)
-  .x(function(d) { return x(d.week); })
+  .x(function(d) { return x(d.startdate); })
   .y0(height)
   .y1(function(d) { return yr(d.tweetcount); });
 
   var area2 = d3.area()
   .curve(d3.curveMonotoneX)
-  .x(function(d) { return x2(d.week); })
+  .x(function(d) { return x2(d.startdate); })
   .y0(height2)
   .y1(function(d) { return y2(d.tweetcount); });
 
   var areanew = d3.area()
   .curve(d3.curveMonotoneX)
-  .x(function(d) { return x(d.data.week); })
+  .x(function(d) { return x(d.data.startdate); })
   .y0(function(d) {return y(d[0]); })
   .y1(function(d) { return y(d[1]); });
 
   var stack = d3.stack()
-  .keys(["anger", "apple", "sadness", "hate"])
+  .keys(["anger","anticipation","disgust","fear","joy","sadness","surprise","trust"])
   .order(d3.stackOrderNone)
     //.offset(d3.stackOffsetExpand);
     //.offset(d3.stackOffsetDiverging);
@@ -55,7 +57,7 @@
     .offset(d3.stackOffsetSilhouette);
     //.offset(d3.stackOffsetWiggle);
 
-    var keys = ["anger", "apple", "sadness", "hate"];
+    var keys = ["anger","anticipation","disgust","fear","joy","sadness","surprise","trust"];
 
 
     var color = d3.scaleLinear()
@@ -88,18 +90,18 @@
   //////////////////////////////////
   // Now we need to read the data //
   //////////////////////////////////
-  d3.csv('data1.csv', type, function(error, data) {
+  d3.csv('@BarackObama.csv', type, function(error, data) {
     if (error) throw error;
 
     c = data;
     series = stack(data);
 
     // Calculate domain of x axis
-    x.domain(d3.extent(data, function(d) { return d.week; }));
+    x.domain(d3.extent(data, function(d) { return d.startdate; }));
     x2.domain(x.domain());
 
     // Calculate domain of y axis
-    y.domain([-3, 3 * 1.2]);
+    y.domain([-10, 10 * 1.2]);
     yr.domain([0, 1.2 * d3.max(data, function(d) { return d.tweetcount; })]);
     y2.domain(yr.domain());
 
@@ -114,23 +116,54 @@
     va = ca.data(data)
     .enter().append("rect").attr("class", "emtweets")
     .attr("x", function(k) {
-      return x(k.week);
+      return x(k.startdate);
     })
     .attr("y", 0)
     .attr("width", function(l, k) {
       if (k >= data.length - 1) {
         return 0
       }
-      return x(data[k + 1].week) - x(l.week)
+      return x(data[k + 1].startdate) - x(l.startdate)
     })
     .attr("height", height)
     .attr("fill", "steelblue")
     .on("mouseover", function(m) {
+      //console.log("Mouse hovering on rect");
+      divtooltip.transition()
+                .duration(500)  
+                .style("opacity", 0);
+            divtooltip.transition()
+                .duration(200)  
+                //.style("display", "block")
+                .style("visibility", "visible")
+                .style("opacity", .9);
+                var html;   
+                //console.log("LENGHTH",d);
+                var sum = 0;
 
+                    html = '<p class="header">Grant total number of tweets for all companies : <span class="clickstylebubble">' + 'some ' + '</p>';
+
+
+               
+                html = html + '<h3></h3>'
+
+            divtooltip .html(html) 
+
+                .style("left", (d3.event.pageX) + "px")          
+                .style("top", (d3.event.pageY - 28) + "px");
+      //TO DO : show the current date 
+      //TO DO : show the tooltip with work cloud
     }).on("mouseout", function(m) {
-
+      //console.log("Mouse hovering out on rect");
+      divtooltip.transition()        
+                .duration(500)   
+                .style("visibility", "hidden")   
+                .style("opacity", 0);
+      //TO DO : hide the current date 
+      //TO DO : hide the tooltip with work cloud
     }).on("click", function(n, m) {
-
+      console.log("clickeddd");
+      getScatterplotData(2);
     });
 
 
@@ -150,21 +183,25 @@
       focus.append("g").attr("clip-path","url(#clip-" + m + ")").attr("class", "embandrect-" + m).selectAll("rect").data(data)
       .enter().append("rect").attr("class", "emtweets" + m)
       .attr("x", function(k) {
-        return x(k.week);
+        return x(k.startdate);
       })
       .attr("y", 0)
       .attr("width", function(l, k) {
         if (k >= data.length - 1) {
           return 0
         }
-        return x(data[k + 1].week) - x(l.week)
+        return x(data[k + 1].startdate) - x(l.startdate)
       })
       .attr("height", height)
       .attr("fill", function(d) { 
-        if(m == "apple") return "green"; 
-        else if(m == "anger") return "red";
-        else if(m == "sadness") return "yellow";
-        else if(m == "hate") return "orange";
+        if(m == "anger") return "green"; 
+        else if(m == "anticipation") return "red";
+        else if(m == "disgust") return "yellow";
+        else if(m == "fear") return "orange";
+        else if(m == "joy") return "purple";
+        else if(m == "sadness") return "grey";
+        else if(m == "surprise") return "pink";
+        else if(m == "trust") return "brown";
         return "black";
       });
 
@@ -172,22 +209,24 @@
 
 
     /////////////////////////
-    d3.json("data.json", function(error, data) {
+    d3.json("@BarackObama_tfidf_bubble.json", function(error, data) {
     if (error) throw error;
 
+
     data.forEach(function(d) {
-      d.value2 = parseDate(d.value2);
-      d.value = +d.value;
+      d.startdate = parseDate(d.startdate);
+      d.vad_score[0] = +d.vad_score[0];
 
 
       var dataa = [];
-      var temp = { id : d.id, parentId : undefined, size : undefined };
+      var temp = { id : d.clusterid, parentId : undefined, size : undefined };
       dataa.push(temp);
-      d.more.forEach(function(x){
+      d.mood_score.forEach(function(x){
         var temp1 = {};
-        temp1.id = x.more1;
-        temp1.parentId = d.id;
-        temp1.size = x.more2.toString();
+        temp1.id = x.moodname;
+        temp1.parentId = d.clusterid;
+        temp1.size = x.score.toString();
+        temp1.vad_score = d.vad_score[0];
               dataa.push(temp1);
             });
 
@@ -202,7 +241,7 @@
       const stratData = d3.stratify()(dataa),
       root = d3.hierarchy(stratData)
       .sum(function (d) {return d.data.size })
-      .sort(function(a, b) { return b.value - a.value }),
+      .sort(function(a, b) { return b.vad_score - a.vad_score }),
       nodes = root.descendants()
 
       layout(root)
@@ -212,8 +251,8 @@
       //console.log("nodes : ", nodes );
 
       nodes.forEach(function(y){
-        y.cx = d.value2;
-        y.cy = +d.value;
+        y.cx = d.startdate;
+        y.cy = +d.vad_score[0];
       });
 
       d.nodes = nodes;
@@ -243,8 +282,8 @@
       .attr("r", function(d){
         return 6;
       })
-      .attr("cx", function(d) { return x(d.value2); })
-      .attr("cy", function(d) { return y(d.value); })
+      .attr("cx", function(d) { return x(d.startdate); })
+      .attr("cy", function(d) { return y(d.vad_score[0]); })
       .style("fill", "darkgray")
       .style("fill-opacity", 0.8)
       .style("stroke", "black");
@@ -252,10 +291,10 @@
 
       g1.append("line")
       .attr("class", "domline")
-      .attr("x1",function(d) { return x(d.value2) - 5.590147365513294; })  
-      .attr("y1",function(d) { return y(d.value) + 2.179507383; })  
-      .attr("x2",function(d) { return x(d.value2) + 5.590147365513294; })  
-      .attr("y2",function(d) { return y(d.value) - 2.179507383; })  
+      .attr("x1",function(d) { return x(d.startdate) - 5.590147365513294; })  
+      .attr("y1",function(d) { return y(d.vad_score[0]) + 2.179507383; })  
+      .attr("x2",function(d) { return x(d.startdate) + 5.590147365513294; })  
+      .attr("y2",function(d) { return y(d.vad_score[0]) - 2.179507383; })  
       .attr("stroke","white")  
       .attr("stroke-width",2)  
       .attr("marker-end","url(#ahead)");
@@ -266,8 +305,8 @@
       gDetails.append("circle")
       .attr("class", "outerr")
       .attr("r", 42)
-      .attr("cx", function(d) { return x(d.value2); })
-      .attr("cy", function(d) { return y(d.value); })
+      .attr("cx", function(d) { return x(d.startdate); })
+      .attr("cy", function(d) { return y(d.vad_score[0]); })
       .attr("stroke", "black")
       .attr("fill", "lightgreen")
       .attr("fill-opacity", 0.5);
@@ -276,8 +315,8 @@
       gDetails.append("circle")
       .attr("class", "outerc")
       .attr("r", 35)
-      .attr("cx", function(d) { return x(d.value2); })
-      .attr("cy", function(d) { return y(d.value); })
+      .attr("cx", function(d) { return x(d.startdate); })
+      .attr("cy", function(d) { return y(d.vad_score[0]); })
       .attr("stroke", "black")
       .attr("fill", "none");
 
@@ -293,10 +332,56 @@
       .attr('cx', function (d) { return x(d.cx) + d.x - 75/2; })
       .attr('cy', function (d) { return y(d.cy) + d.y - 75/2; })
       .attr('r', function (d) { return d.r; })
-      .style("fill", function(d) { if(d.depth == 0) return "red"; else return "green"; });
+      .style("fill", function(d) { if(d.depth == 0) return "red"; else return "green"; })
+      .on("mouseover", function(m) {
+        if(m.depth == 1){
+          console.log("Mouse hovering on circle");
+        divtooltip.transition()
+        .duration(500)  
+        .style("opacity", 0);
+        divtooltip.transition()
+        .duration(200)  
+                //.style("display", "block")
+                .style("visibility", "visible")
+                .style("opacity", .9);
+                var html;   
+                //console.log("LENGHTH",d);
+                var sum = 0;
+
+                html = '<p class="header">Grant total number of tweets for all companies : <span class="clickstylebubble">' + 'some ' + '</p>';
 
 
-      innerCirclesAndArrows.selectAll('line')
+
+                html = html + '<h3></h3>'
+
+                divtooltip .html(html) 
+
+                .style("left", (d3.event.pageX) + "px")          
+                .style("top", (d3.event.pageY - 28) + "px");
+
+        }
+        
+      //TO DO : show the current date 
+    }).on("mouseout", function(m) {
+      if(m.depth == 1){
+        console.log("Mouse hovering out on circle");
+      divtooltip.transition()        
+      .duration(500)   
+      .style("visibility", "hidden")   
+      .style("opacity", 0);
+      }
+      
+      //TO DO : hide the current date 
+    }).on("click", function(n, m) {
+      if(n.depth == 1){
+        console.log("clickeddd");
+        getScatterplotData(2);
+      }
+      
+    });;
+
+
+    innerCirclesAndArrows.selectAll('line')
       .data(function(d){ 
         return d.nodes;
       })
@@ -310,6 +395,9 @@
       .attr("stroke-width",2)  
       .attr("marker-end","url(#ahead)")
       .attr("visibility", function(d){if(d.depth == 0) return "hidden"; else return "visibility";});
+
+
+      
 
       g1.on("mouseover", function(d){
         //console.log("d : ",d);
@@ -376,14 +464,14 @@ function brushed() {
     x.domain(s.map(x2.invert, x2));
 
     va.attr("x", function(k) {
-      return x(k.week);
+      return x(k.startdate);
     })
     .attr("y", 0)
     .attr("width", function(l, k) {
       if (k >= c.length - 1) {
         return 0
       }
-      return x(c[k + 1].week) - x(l.week)
+      return x(c[k + 1].startdate) - x(l.startdate)
     })
     .attr("height", height)
     .attr("fill", "steelblue");
@@ -403,21 +491,25 @@ function brushed() {
     keys.forEach(function(m){
 
       focus.select(".embandrect-" + m).selectAll('.emtweets'+m).attr("x", function(k) {
-        return x(k.week);
+        return x(k.startdate);
       })
       .attr("y", 0)
       .attr("width", function(l, k) {
         if (k >= c.length - 1) {
           return 0
         }
-        return x(c[k + 1].week) - x(l.week)
+        return x(c[k + 1].startdate) - x(l.startdate)
       })
       .attr("height", height)
       .attr("fill", function(d) { 
-        if(m == "apple") return "green"; 
-        else if(m == "anger") return "red";
-        else if(m == "sadness") return "yellow";
-        else if(m == "hate") return "orange";
+        if(m == "anger") return "green"; 
+        else if(m == "anticipation") return "red";
+        else if(m == "disgust") return "yellow";
+        else if(m == "fear") return "orange";
+        else if(m == "joy") return "purple";
+        else if(m == "sadness") return "grey";
+        else if(m == "surprise") return "pink";
+        else if(m == "trust") return "brown";
         return "black";
       });
     });
@@ -426,19 +518,19 @@ function brushed() {
 
 
     focus.selectAll(".circles").select('.innerc')
-      .attr("cx", function(d) { return x(d.value2); })
+      .attr("cx", function(d) { return x(d.startdate); })
 
     focus.selectAll(".circles").select('.domline')
-      .attr("x1",function(d) { return x(d.value2) - 5.590147365513294; })  
-      .attr("x2",function(d) { return x(d.value2) + 5.590147365513294; })  ;
+      .attr("x1",function(d) { return x(d.startdate) - 5.590147365513294; })  
+      .attr("x2",function(d) { return x(d.startdate) + 5.590147365513294; })  ;
 
 
     focus.selectAll(".circles").select('.gDetails').select('.outerc')
-      .attr("cx", function(d) { return x(d.value2); });
+      .attr("cx", function(d) { return x(d.startdate); });
 
 
     focus.selectAll(".circles").select('.gDetails').select('.outerr')
-      .attr("cx", function(d) { return x(d.value2); });
+      .attr("cx", function(d) { return x(d.startdate); });
 
 
     focus.selectAll(".circles").select('.gDetails').select('.hovercircles').selectAll('.insidecircles')
@@ -464,7 +556,7 @@ function brushed() {
   }
 
   function type(d) {
-    d.week = parseDate(d.week);
+    d.startdate = parseDate(d.startdate);
     d.tweetcount = +d.tweetcount;
     d.valance = +d.valance;
     return d;
