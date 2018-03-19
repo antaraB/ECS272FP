@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<script src="d3.js"></script>
+<script src="d3.layout.cloud.js"></script>
+<script src="tagcloud.js"></script>
+
+<script>
+    window.onload = function(){
+        drawtagcloud('example',0);
+    }
+</script>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="bootstrap.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+
+    <title>Exploring Books from Project Gutenberg </title>
+</head>
+<body>
+<div class="container-fluid">
+
+    <div class="row" id="row1">
+        <div class="col-lg-12 height10p text-center">
+
+          <h1 class="bg-dark" style="margin-top:0;"><font color='white'>Exploring Books from Project Gutenburg</font></h1>
+          <br>
+      </div>
+    </div>
+      <div class="row" id="row2">
+
+        <div class="col-lg-12 height30p text-center">
+        <div id="vis1">
+            <h4 id="vis1text"></h4></div>
+        </div>
+    <div id="dataset-picker">
+    </div>
+        
+    </div>
+    </div>
+    <div class="row" id="row2">
+        <div class="col-md-6 height30p text-center">
+                    <div id="vis2">
+                        <h5 id="vis2text"></h5></div>
+    </div>
+    
+        <div class="col-md-6 height30p text-center">
+                    <div id="vis3">
+                        <h5 center id="vis3text">Word cloud for</h5 center>
+                    </div>
+
+    </div>
+
+
+</body>
+</html>
