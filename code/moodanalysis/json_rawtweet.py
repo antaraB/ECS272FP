@@ -38,7 +38,7 @@ if __name__=="__main__":
 	# clusterlen= len(clusters)
 	final=[]
 	for tweetid in tweetdict:
-		cluster={'tweetid':tweetid, 'rawtext': tweetdict[tweetid]['text'], 'time':tweetdict[tweetid]['time']}
+		cluster={'tweetid':tweetid, 'tweet': tweetdict[tweetid]['text'], 'tweetdate':tweetdict[tweetid]['time']}
 		final.append(cluster)
 	
 	with open ('data/json/'+twitterid+'_raw.json','w') as f:

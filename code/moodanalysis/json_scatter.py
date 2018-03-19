@@ -29,6 +29,14 @@ def cleanEmotionWords (affexp, to_print):
 			print "len(original)={}, len(new)={}".format(len(affexp[tweetid]),len(newdict[tweetid]))
 	return newdict
 	
+def iswordinwords (word,words):
+	for i in xrange(len(words)):
+		if word == words[i]['word']:
+			return 1
+		else :
+			print "{} is not {}".format(word, words[i]['word'])
+	return 0
+
 if __name__=="__main__":
 
 	# for testing
@@ -57,6 +65,11 @@ if __name__=="__main__":
 	filename='data/json/'+twitterid+'_tfidf.json'
 	clusters=json.load(open(filename))
 	clusterlen= len(clusters)
+
+	filename='data/pickle/'+twitterid+'_tweets_dict.p'
+	tweetdict=pickle.load(open(filename))
+	
+
 	final=[]
 	for i in xrange(clusterlen):
 		cluster=[]
@@ -64,8 +77,9 @@ if __name__=="__main__":
 		for tweetid in clusters[i]['tweets']:
 			words=[]
 			for word in affexp[tweetid]:
-				words.append({'word':word, 'vad':affexp[tweetid][word]['vad'], 'plutchik':affexp[tweetid][word]['plutchik']})
-			tweet={'tweetid':tweetid,'words':words}
+				if not iswordinwords(word,words):
+					words.append({'word':word, 'vad':affexp[tweetid][word]['vad'], 'plutchik':affexp[tweetid][word]['plutchik']})
+			tweet={'tweetid':tweetid,'words':words, 'tweet': tweetdict[tweetid]['text'], 'tweetdate':tweetdict[tweetid]['time']}
 			cluster.append(tweet)
 		final.append(cluster)
 	with open ('data/json/'+twitterid+'_scatter.json','w') as f:
