@@ -5,7 +5,7 @@ function getRawTweetData(clusterId){
 
     d3.json("@BarackObama_scatter.json", function(error, datascatter) {
         if (error) throw error;
-        var rawtweets = datascatter[0];
+        var rawtweets = datascatter[clusterId];
         var  i, txt = "";
 
         for(i in rawtweets){
@@ -31,7 +31,9 @@ function getRawTweetData(clusterId){
     });
 };
 
-
+function onHover(dss){
+    
+}
 
 
 

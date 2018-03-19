@@ -53,7 +53,7 @@ d3.json("@BarackObama_scatter.json", function(error, datascatter) {
   if (error) throw error;
   //console.log((datascatter[clusterId]));
   
-  var keys=datascatter[0];
+  var keys=datascatter[clusterId];
   var tweetwords=[]
   // For each tweetID, 
   keys.forEach(function(tweetID) {
@@ -77,7 +77,7 @@ d3.json("@BarackObama_scatter.json", function(error, datascatter) {
     .attr("id", function (d,i) { return "chart"+i; })
     .append("g").attr("class","pies")
     .on("mouseover",function(d){
-      console.log("Points being hovered ", d);
+      //console.log("Points being hovered ", d);
       d3.select(this).attr("stroke","black")
     })
     .on("mouseout", function(d){
