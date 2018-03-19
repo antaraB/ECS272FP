@@ -64,8 +64,9 @@ d3.json("@BarackObama_scatter.json", function(error, datascatter) {
       d.tweetID=tweetID;
       tweetwords.push(d);
      })
-     
   });
+
+  console.log("data scatter", datascatter);
 
   var points = g2scatter.selectAll("g")
     .data(tweetwords)
@@ -87,7 +88,7 @@ d3.json("@BarackObama_scatter.json", function(error, datascatter) {
     .attr('class','arc');
   
   pies.append("path")
-    .attr('d',arc)
+    .attr('d',arc)  
       .attr("fill",function(d,i){
         // console.log(d,i)
         // var m = [1,0,0,1,1,0,1,1]
