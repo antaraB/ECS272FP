@@ -31,9 +31,6 @@ function getRawTweetData(clusterId){
     });
 };
 
-function onHover(dss){
-    
-}
 
 
 

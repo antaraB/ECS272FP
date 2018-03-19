@@ -132,6 +132,11 @@
     .on("mouseover", function(m, ci) {
       // var divtooltip
       //console.log("Mouse hovering on rect");
+
+      divtooltip.html(drawtagcloud(selectedFilename,ci))
+                .style("left", (d3.event.pageX) + "px")          
+                .style("top", (d3.event.pageY - 28) + "px");
+                
       divtooltip.transition()
       .duration(500)  
       .style("opacity", 0);
@@ -141,9 +146,7 @@
                 .style("visibility", "visible")
                 .style("opacity", .9);
 
-                divtooltip.html(drawtagcloud(selectedFilename,ci))
-                .style("left", (d3.event.pageX) + "px")          
-                .style("top", (d3.event.pageY - 28) + "px");
+                
 
                  focus.select(".hovtime").attr("visibility","visible").attr("y",350).attr("x",x(m.startdate) - 30)
                 .text(m.startdate.getFullYear() + '-' + (m.startdate.getMonth() + 1) + '-' + m.startdate.getDate());

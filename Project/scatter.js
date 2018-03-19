@@ -105,6 +105,11 @@ d3.json(selectedFilename + "_scatter.json", function(error, datascatter) {
     .on("mouseout", function(d){
       d3.select(this).attr("stroke","none");
 
+      divtooltip.transition()        
+      .duration(500)   
+      .style("visibility", "hidden")   
+      .style("opacity", 0);
+
     });
   
   
