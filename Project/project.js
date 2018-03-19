@@ -421,6 +421,11 @@
 
     /////////////////////////
 
+  focus.append("text").attr("class", "y axislabel").attr("x", 8).attr("y", 8).text("Valence");
+
+  focus.append("text").attr("class", "yt axislabel").attr("x", 1150 - 60).attr("y", 8).text("Tweets");
+
+
     // Append x axis to focus
     focus.append('g')
     .attr('class', 'axis axis-x')

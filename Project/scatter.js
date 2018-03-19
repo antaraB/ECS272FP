@@ -25,7 +25,7 @@ var gscatter = svg2.append("g")
 gscatter.append("rect")
     .attr("width", widthscatter - margin.left - margin.right)
     .attr("height", heightscatter - margin.top - margin.bottom)
-    .attr("fill", "#F6F6F6");
+    .attr("fill", "none");
 
 var g2scatter = svg2.append("g");
 
@@ -131,7 +131,9 @@ d3.json(selectedFilename + "_scatter.json", function(error, datascatter) {
         else if(d.index == 7) return emotioncolors["trust"];      
       });
       
-  
+
+  gscatter.append("text").attr("class", "axislabel").attr("x", 145).attr("y", 8).text("Valence");
+  gscatter.append("text").attr("class", "axislabel").attr("x", 240).attr("y", 135).text("Arousal");
 
   gscatter.append("g")
       .attr("class", "x axis")
