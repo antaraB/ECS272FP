@@ -46,7 +46,7 @@
   .curve(d3.curveMonotoneX)
   .x(function(d) { return x(d.data.startdate); })
   .y0(function(d) {return y(d[0]); })
-  .y1(function(d) { return y(d[1]); });
+  .y1(function(d) { /*console.log(d); */return y(d[1]); });
 
   var stack = d3.stack()
   .keys(["anger","anticipation","disgust","fear","joy","sadness","surprise","trust"])
@@ -92,7 +92,7 @@
   //////////////////////////////////
   d3.csv('@BarackObama.csv', type, function(error, data) {
     if (error) throw error;
-
+    console.log(data);
     c = data;
     series = stack(data);
 
@@ -162,8 +162,9 @@
       //TO DO : hide the current date 
       //TO DO : hide the tooltip with work cloud
     }).on("click", function(n, m) {
-      console.log("clickeddd");
-      getScatterplotData(2);
+      console.log("clickeddd clusterid",m);
+      // console.log(n,m);
+      getScatterplotData(m);
     });
 
 
@@ -248,11 +249,12 @@
 
 
 
-      //console.log("nodes : ", nodes );
+      // console.log("nodes : ", nodes );
 
-      nodes.forEach(function(y){
-        y.cx = d.startdate;
-        y.cy = +d.vad_score[0];
+      nodes.forEach(function(y3){
+        y3.cx = d.startdate;
+        y3.cy = +d.vad_score[0];
+        // console.log()
       });
 
       d.nodes = nodes;
@@ -283,7 +285,7 @@
         return 6;
       })
       .attr("cx", function(d) { return x(d.startdate); })
-      .attr("cy", function(d) { return y(d.vad_score[0]); })
+      .attr("cy", function(d) { /*console.log("vad",y(d.vad_score[0]),d.vad_score[0]);*/ return y(d.vad_score[0])+height/2; })
       .style("fill", "darkgray")
       .style("fill-opacity", 0.8)
       .style("stroke", "black");
@@ -292,9 +294,9 @@
       g1.append("line")
       .attr("class", "domline")
       .attr("x1",function(d) { return x(d.startdate) - 5.590147365513294; })  
-      .attr("y1",function(d) { return y(d.vad_score[0]) + 2.179507383; })  
+      .attr("y1",function(d) { return y(d.vad_score[0]) + 2.179507383+height/2; })  
       .attr("x2",function(d) { return x(d.startdate) + 5.590147365513294; })  
-      .attr("y2",function(d) { return y(d.vad_score[0]) - 2.179507383; })  
+      .attr("y2",function(d) { return y(d.vad_score[0]) - 2.179507383+height/2; })  
       .attr("stroke","white")  
       .attr("stroke-width",2)  
       .attr("marker-end","url(#ahead)");
@@ -306,7 +308,7 @@
       .attr("class", "outerr")
       .attr("r", 42)
       .attr("cx", function(d) { return x(d.startdate); })
-      .attr("cy", function(d) { return y(d.vad_score[0]); })
+      .attr("cy", function(d) { return y(d.vad_score[0])+height/2; })
       .attr("stroke", "black")
       .attr("fill", "lightgreen")
       .attr("fill-opacity", 0.5);
@@ -316,7 +318,7 @@
       .attr("class", "outerc")
       .attr("r", 35)
       .attr("cx", function(d) { return x(d.startdate); })
-      .attr("cy", function(d) { return y(d.vad_score[0]); })
+      .attr("cy", function(d) { return y(d.vad_score[0])+height/2; })
       .attr("stroke", "black")
       .attr("fill", "none");
 
@@ -330,7 +332,7 @@
       .append('circle')
       .attr('class', 'insidecircles')
       .attr('cx', function (d) { return x(d.cx) + d.x - 75/2; })
-      .attr('cy', function (d) { return y(d.cy) + d.y - 75/2; })
+      .attr('cy', function (d) { return y(d.cy) + d.y - 75/2 +height/2; })
       .attr('r', function (d) { return d.r; })
       .style("fill", function(d) { if(d.depth == 0) return "red"; else return "green"; })
       .on("mouseover", function(m) {
@@ -374,8 +376,8 @@
       //TO DO : hide the current date 
     }).on("click", function(n, m) {
       if(n.depth == 1){
-        console.log("clickeddd");
-        getScatterplotData(2);
+        console.log("clickeddd clusterid2",m);
+        getScatterplotData(m);
       }
       
     });;
@@ -400,7 +402,7 @@
       
 
       g1.on("mouseover", function(d){
-        //console.log("d : ",d);
+        // console.log("d : ",d);
         d3.select(this).select(".gDetails").transition().duration(500).attr("opacity", 1).attr("visibility", "visible");
 
       }).on("mouseout", function(d){
@@ -556,8 +558,9 @@ function brushed() {
   }
 
   function type(d) {
+    // console.log(d);
     d.startdate = parseDate(d.startdate);
     d.tweetcount = +d.tweetcount;
-    d.valance = +d.valance;
+    // d.valence = +d.vad_score[0];
     return d;
   }

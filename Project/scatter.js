@@ -2,8 +2,6 @@
 
 function getScatterplotData(clusterId){
   console.log("inside the getScatterplotData")
-}
-
 
 var svg2 = d3.select("#scatter"),
     margin = {top: 10, right: 10, bottom: 10, left: 10},
@@ -13,11 +11,11 @@ var svg2 = d3.select("#scatter"),
     domainheight = heightscatter - margin.top - margin.bottom;
   
 var xscatter = d3.scaleLinear()
-    .domain([0,1])
+    .domain([0,10])
     .range([0, domainwidth]);
 
 var yscatter = d3.scaleLinear()
-    .domain([0,1])
+    .domain([0,10])
     .range([domainheight, 0]);
   
 var gscatter = svg2.append("g")
@@ -42,8 +40,8 @@ var color = d3.scaleThreshold()
 var arc = d3.arc()
       .innerRadius(0)
       .outerRadius(function(d){
-        //console.log("d dr :", d);
-        return 10;
+        // console.log("d dr :", d);
+        return 5;
       });
       
 var pie = d3.pie()
@@ -51,19 +49,29 @@ var pie = d3.pie()
       .value(function(d) { return d; });
       
 
-d3.json("datascatter.json", function(error, datascatter) {
+d3.json("@BarackObama_scatter.json", function(error, datascatter) {
   if (error) throw error;
-
-  datascatter.forEach(function(d) {
-      d.value2 = +d.value2;
-      d.value = +d.value;
+  // var clusterId=0;
+  var keys=Object.keys(datascatter[clusterId][clusterId])
+  var tweetwords=[]
+  // For each tweetID, 
+  keys.forEach(function(tweetID) {
+      datascatter[clusterId][clusterId][tweetID].forEach(function(d){
+      d.textword=d.word;
+      d.emotions=d.plutchik;
+      d.xvalue = +d.vad[1];
+      d.yvalue = +d.vad[0];
+      d.tweetID=tweetID;
+      tweetwords.push(d);
+     })
+     
   });
 
   var points = g2scatter.selectAll("g")
-    .data(datascatter)
+    .data(tweetwords)
     .enter()
     .append("g")
-    .attr("transform",function(d) { return "translate("+xscatter(d.value2)+","+yscatter(d.value)+")"; })
+    .attr("transform",function(d) { return "translate("+xscatter(d.xvalue)+","+yscatter(d.yvalue)+")"; })
     .attr("id", function (d,i) { return "chart"+i; })
     .append("g").attr("class","pies");
   
@@ -72,8 +80,7 @@ d3.json("datascatter.json", function(error, datascatter) {
     // Select each g element we created, and fill it with pie chart:
   var pies = points.selectAll(".pies")
     .data(function(d){
-      //console.log("QQQ",d);
-      return pie([1, 1, 1, 0, 1, 0, 1, 0]);
+      return pie(d.emotions);
     }) 
     .enter()
     .append('g')
@@ -82,7 +89,8 @@ d3.json("datascatter.json", function(error, datascatter) {
   pies.append("path")
     .attr('d',arc)
       .attr("fill",function(d,i){
-        var m = [1,0,0,1,1,0,1,1]
+        // console.log(d,i)
+        // var m = [1,0,0,1,1,0,1,1]
         if(d.index == 0) return color(1); 
         else if(d.index == 1) return color(10); 
         else if(d.index == 2) return color(20); 
@@ -104,4 +112,4 @@ d3.json("datascatter.json", function(error, datascatter) {
       .attr("class", "y axis")
       .attr("transform", "translate(" + xscatter.range()[1] / 2 + ", 0)")
       .call(d3.axisLeft(yscatter).ticks(5));
-});
+});}
