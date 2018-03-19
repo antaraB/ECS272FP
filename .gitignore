@@ -1,2 +1,9 @@
 #Original NRC lexicon is not publicly available
 lexicon/nrc/NRC-Emotion-Lexicon-Wordlevel-v0.92.txt
+
+#Copy of the original PEARL demo
+pearlcopy/
+
+# sample json files
+example.json
+sample.json
