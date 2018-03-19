@@ -104,7 +104,7 @@ d3.json(selectedFilename + "_scatter.json", function(error, datascatter) {
     })
     .on("mouseout", function(d){
       d3.select(this).attr("stroke","none");
-      divtooltip.selectAll("*").remove()  
+      // divtooltip.selectAll("*").remove()  
 
     });
   

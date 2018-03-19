@@ -9,16 +9,17 @@ function compare(a,b) {
   return 0;
 }
 
-function drawtagcloud(jsonfilename,i){
+function drawtagcloud(twitterID,clusterID){
 	
+    jsonfilename=twitterID+'_tfidf.json'
      // console.log(jsonfilename,i);
      // console.log(__dirname);
-    // d3.json(jsonfilename, function(error,data){
+    d3.json(jsonfilename, function(error,data){
         // console.log(data[i]);
     
     // book= window[name];
     // console.log(book[i]);
-    var wordsarr=example[0]['tfidf']
+    var wordsarr=data[clusterID]['tfidf']
     // wordsarr=data[i]['tfidf'];
 
     // console.log(wordsarr);
@@ -37,7 +38,7 @@ function drawtagcloud(jsonfilename,i){
 	 d3.layout.cloud()
         .size([300,240])
         .words(wordsarr.map(function(d) {
-            return {text: d.word, size: 10+(d.score)*20};}))
+            return {text: d.word, size: 10+(d.score)*200};}))
         .padding(2)
         .rotate(0)
         .font("sans-serif")
@@ -66,4 +67,4 @@ function drawtagcloud(jsonfilename,i){
         .text(function(d) { return d.text;});
     }
     return divtooltip.html()
-}
+})}

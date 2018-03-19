@@ -129,7 +129,7 @@
     })
     .attr("height", height)
     .attr("fill", "steelblue")
-    .on("mouseover", function(m) {
+    .on("mouseover", function(m, ci) {
       // var divtooltip
       //console.log("Mouse hovering on rect");
       divtooltip.transition()
@@ -141,7 +141,7 @@
                 .style("visibility", "visible")
                 .style("opacity", .9);
 
-                divtooltip.html(drawtagcloud("hello.json",0))
+                divtooltip.html(drawtagcloud(selectedFilename,ci))
                 .style("left", (d3.event.pageX) + "px")          
                 .style("top", (d3.event.pageY - 28) + "px");
 
@@ -385,7 +385,7 @@
       .duration(500)   
       .style("visibility", "hidden")   
       .style("opacity", 0);
-      divtooltip.selectAll("*").remove();
+      // divtooltip.selectAll("*").remove();
       // .removeAll();
       }
       
