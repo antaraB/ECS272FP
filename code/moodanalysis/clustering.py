@@ -75,15 +75,17 @@ parser.add_argument('-v','--verbose', action='store_true', help=" Will print val
 parser.add_argument('-vt','--valence', default=1.5, help=" Value for valence threshold. Default is 1.5 ")
 parser.add_argument('-at','--arousal', default=2.0, help=" Value for valence threshold. Default is 2.7 ")
 parser.add_argument('-dt','--dominance', default=2.3, help=" Value for valence threshold. Default is 2 ")
+parser.add_argument('-y','--year', default='2017', help=" Filter for this year")
 
 args=parser.parse_args()
 # if not csvfilename:
 csvfilename=args.csvfilename
 picklefilename=args.picklefile
 to_print=args.verbose
-vt=args.valence
-at=args.arousal
-dt=args.dominance
+vt=float(args.valence)
+at=float(args.arousal)
+dt=float(args.dominance)
+filteryear=int(args.year)
 
 if to_print:
 	print "Valence threshold is {}\nArousal threshold is {}\nDominance threshold is {}".format(vt,at,dt)
@@ -98,8 +100,8 @@ elif csvfilename:
 		print "CSV file chosen: {}".format(csvfilename)
 	with open(csvfilename) as f:
 		csvfile=list(csv.reader(f))
-	csvfile=csvfile[1:]
-	data=sorted(csvfile, key=lambda row: datetime.strptime(row[1],dateformat))
+	data=csvfile[1:]
+	# data=sorted(data, key=lambda row: datetime.strptime(row[1],dateformat))
 	twitterid=re.findall('\@[^_]+',csvfilename)[0]
 
 elif picklefilename:
@@ -110,18 +112,12 @@ elif picklefilename:
 	for tweetid in tweetdict:
 		if not tweetid =='id':
 			data.append([tweetid, tweetdict[tweetid]['time']])
-	data=sorted(data, key=lambda row: datetime.strptime(row[1],dateformat))
 	twitterid=re.findall('\@[^_]+',picklefilename)[0]
 
-emotionfilename='data/pickle/'+twitterid+'_basicemotion.p'
-basicemotion=pickle.load(open(emotionfilename))
-
-# initialize cluster
-clusters=[]	
-
-cluster_emotion,cluster = initcluster()
 count=0
 year=0
+data=sorted(data, key=lambda row: datetime.strptime(row[1],dateformat))
+
 for row in data:
 	if datetime.strptime(row[1],dateformat).year>year:
 		print "{} tweets in year {}".format(count,year)
@@ -130,20 +126,43 @@ for row in data:
 	else:
 		count+=1
 
+finaldata=[row for row in data if datetime.strptime(row[1],dateformat).year==filteryear]
+data=sorted(finaldata, key=lambda row: datetime.strptime(row[1],dateformat))
+
+emotionfilename='data/pickle/'+twitterid+'_basicemotion.p'
+basicemotion=pickle.load(open(emotionfilename))
+
+# initialize cluster
+clusters=[]	
+
+cluster_emotion,cluster = initcluster()
+
+count=0
 clusterexists=False
 for row in data:
 	tweetid=row[0]
 	tweetdate=row[1]
+	if not datetime.strptime(tweetdate,dateformat).year==filteryear:
+		if to_print:
+			print "{} is skipped".format(tweetdate)
+		continue
+
 	if tweetid in basicemotion:
+		# if to_print:
+		# 	print "{} in basicemotion".format(tweetid)
 		matrix=basicemotion[tweetid]
 		if sum(map(sum,matrix))==0:
 			if to_print:
 				print "{} has been skipped due to zero vals".format(tweetid)
 			continue
 	else :
+		# if to_print:
+		# 	print "{} not in basicemotion".format(tweetid)
 		continue
 	# cluster doesn't exist
 	if not clusterexists:
+		if to_print:
+			print "Cluster doesn't exist, starting new with {}".format(tweetid)
 		# add first tweet to cluster 
 		cluster=addtocluster(cluster, matrix, tweetid, tweetdate)
 		for i in xrange(8):
@@ -151,6 +170,8 @@ for row in data:
 		clusterexists=True
 	else :
 		# check 
+		# if to_print:
+		# 	print "Cluster exists {}".format(cluster)
 		addtofinal=False
 		for i in xrange(len(matrix)):
 			# plutchik matches
@@ -167,8 +188,13 @@ for row in data:
 		# if tweet fits in cluster, add it
 		if addtofinal:
 			cluster=addtocluster(cluster, matrix, tweetid, tweetdate)
+			if to_print:
+				print "{} added to cluster ".format(tweetdate)
 		# if cluster length is too small, add on to it
-		elif len(cluster['tweets'])<4:
+		elif len(cluster['tweets'])<10 :
+			cluster=addtocluster(cluster, matrix, tweetid, tweetdate)
+			if to_print:
+				print "{} added to cluster ".format(tweetdate)
 			continue
 		# if it doesn't, create new cluster
 		else :
@@ -178,8 +204,16 @@ for row in data:
 				if to_print:
 					print "{} tweets appended to cluster".format(len(cluster['tweets']))
 			cluster_emotion,cluster = initcluster()
-			clusterexists=False
 			count+=1
+			cluster=addtocluster(cluster, matrix, tweetid, tweetdate)
+			if to_print:
+				print "{} added to cluster ".format(tweetdate)
+			clusterexists=True
+
+if cluster:
+	clusters.append(cluster)
+	if to_print:
+		print "{} tweets appended to cluster".format(len(cluster['tweets']))
 				
 if to_print:
 	print "{} total clusters created".format(count)
