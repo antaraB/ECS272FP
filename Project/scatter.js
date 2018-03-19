@@ -51,9 +51,9 @@ var pie = d3.pie()
 
 d3.json("@BarackObama_scatter.json", function(error, datascatter) {
   if (error) throw error;
-  console.log((datascatter[clusterId]));
+  //console.log((datascatter[clusterId]));
   
-  var keys=datascatter[clusterId]
+  var keys=datascatter[0];
   var tweetwords=[]
   // For each tweetID, 
   keys.forEach(function(tweetID) {
@@ -67,7 +67,7 @@ d3.json("@BarackObama_scatter.json", function(error, datascatter) {
      })
   });
 
-  console.log("data scatter", datascatter);
+  //console.log("data scatter", datascatter);
 
   var points = g2scatter.selectAll("g")
     .data(tweetwords)
@@ -75,7 +75,14 @@ d3.json("@BarackObama_scatter.json", function(error, datascatter) {
     .append("g")
     .attr("transform",function(d) { return "translate("+xscatter(d.xvalue)+","+yscatter(d.yvalue)+")"; })
     .attr("id", function (d,i) { return "chart"+i; })
-    .append("g").attr("class","pies");
+    .append("g").attr("class","pies")
+    .on("mouseover",function(d){
+      console.log("Points being hovered ", d);
+      d3.select(this).attr("stroke","black")
+    })
+    .on("mouseout", function(d){
+      d3.select(this).attr("stroke","none");
+    });
   
   
   
@@ -112,4 +119,5 @@ d3.json("@BarackObama_scatter.json", function(error, datascatter) {
       .attr("class", "y axis")
       .attr("transform", "translate(" + xscatter.range()[1] / 2 + ", 0)")
       .call(d3.axisLeft(yscatter).ticks(5));
-});}
+});
+}

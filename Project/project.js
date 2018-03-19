@@ -92,7 +92,7 @@
   //////////////////////////////////
   d3.csv('@BarackObama.csv', type, function(error, data) {
     if (error) throw error;
-    console.log(data);
+    //console.log(data);
     c = data;
     series = stack(data);
 
@@ -165,6 +165,7 @@
       console.log("clickeddd clusterid",m);
       // console.log(n,m);
       getScatterplotData(m);
+      getRawTweetData(m);
     });
 
 
@@ -174,8 +175,7 @@
       .append('path')
       .attr("class", "bandpath-"+m.key)
       .datum(m)
-      .attr('d',areanew)
-      .attr('opacity', 0.7);
+      .attr('d',areanew);
     });
 
 
@@ -194,6 +194,7 @@
         return x(data[k + 1].startdate) - x(l.startdate)
       })
       .attr("height", height)
+      .attr("opacity",0.7)
       .attr("fill", function(d) { 
         if(m == "anger") return "green"; 
         else if(m == "anticipation") return "red";
@@ -205,7 +206,6 @@
         else if(m == "trust") return "brown";
         return "black";
       });
-
     })
 
 
@@ -378,6 +378,7 @@
       if(n.depth == 1){
         console.log("clickeddd clusterid2",m);
         getScatterplotData(m);
+        getRawTweetData(m);
       }
       
     });;
@@ -495,24 +496,11 @@ function brushed() {
       focus.select(".embandrect-" + m).selectAll('.emtweets'+m).attr("x", function(k) {
         return x(k.startdate);
       })
-      .attr("y", 0)
       .attr("width", function(l, k) {
         if (k >= c.length - 1) {
           return 0
         }
         return x(c[k + 1].startdate) - x(l.startdate)
-      })
-      .attr("height", height)
-      .attr("fill", function(d) { 
-        if(m == "anger") return "green"; 
-        else if(m == "anticipation") return "red";
-        else if(m == "disgust") return "yellow";
-        else if(m == "fear") return "orange";
-        else if(m == "joy") return "purple";
-        else if(m == "sadness") return "grey";
-        else if(m == "surprise") return "pink";
-        else if(m == "trust") return "brown";
-        return "black";
       });
     });
 
