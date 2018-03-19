@@ -75,7 +75,8 @@ parser.add_argument('-v','--verbose', action='store_true', help=" Will print val
 parser.add_argument('-vt','--valence', default=1.5, help=" Value for valence threshold. Default is 1.5 ")
 parser.add_argument('-at','--arousal', default=2.0, help=" Value for valence threshold. Default is 2.7 ")
 parser.add_argument('-dt','--dominance', default=2.3, help=" Value for valence threshold. Default is 2 ")
-parser.add_argument('-y','--year', default='2017', help=" Filter for this year")
+parser.add_argument('-y','--year', default=2017, help=" Filter for this year (default 2017)")
+parser.add_argument('-m','--month', default=-1, help=" Filter FROM this month")
 
 args=parser.parse_args()
 # if not csvfilename:
@@ -86,6 +87,7 @@ vt=float(args.valence)
 at=float(args.arousal)
 dt=float(args.dominance)
 filteryear=int(args.year)
+filtermonth=int(args.month)
 
 if to_print:
 	print "Valence threshold is {}\nArousal threshold is {}\nDominance threshold is {}".format(vt,at,dt)
@@ -139,14 +141,23 @@ cluster_emotion,cluster = initcluster()
 
 count=0
 clusterexists=False
+if not filtermonth==-1:
+	filterformonth=True
+else :
+	filterformonth=False
 for row in data:
 	tweetid=row[0]
 	tweetdate=row[1]
+	
 	if not datetime.strptime(tweetdate,dateformat).year==filteryear:
 		if to_print:
 			print "{} is skipped".format(tweetdate)
 		continue
-
+	elif filterformonth and datetime.strptime(tweetdate,dateformat).month<filtermonth:
+		if to_print:
+			print "{} is skipped".format(tweetdate)
+		continue
+	
 	if tweetid in basicemotion:
 		# if to_print:
 		# 	print "{} in basicemotion".format(tweetid)
