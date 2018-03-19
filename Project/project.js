@@ -160,7 +160,7 @@
       .duration(500)   
       .style("visibility", "hidden")   
       .style("opacity", 0);
-      divtooltip.selectAll("*").remove(); 
+      //divtooltip.selectAll("*").remove(); 
 
       focus.select(".hovtime").attr("visibility","hidden");
 
