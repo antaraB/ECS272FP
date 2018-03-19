@@ -1,0 +1,263 @@
+/* main html */
+
+body {
+	text-align: center;
+	font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+
+#userid_text {
+	background: white; 
+	text-align: left;
+}
+
+.ui-progressbar {
+    position: relative;
+}
+  
+.progress-label {
+    position: absolute;
+    left: 50%;
+    top: 4px;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #fff;
+}
+
+.legendc circle {
+	stroke-width: 2px;
+	cursor: hand;
+}
+
+.legendc text {
+	font-family: sans-serif;
+	font-size: 10px;
+	fill: balck;
+}
+
+#ahead {
+	fill: white;
+}
+
+#tooltip {
+	position: absolute;
+    padding: 6px;
+    background-color: #FFFFCC;
+    border: 1px solid lightgray;
+    border-radius: 6px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+    visibility: hidden;
+    opacity: 0.9;
+    text-align: left;
+    max-width: 300px;
+}
+
+#tooltip.hidden {
+    display: none;
+}
+
+#tooltip p {
+    margin: 0px;
+    font-family: sans-serif;
+    font-size: 12px;
+}
+
+/* EmStates.js */
+.emstate .outerc {
+	fill: none;
+}
+
+.emstate .innerc {
+	fill: darkgray;
+	fill-opacity: 0.8;
+	stroke: black;
+}
+
+.emstate .moodc  {
+	fill-opacity: 0.9;
+	stroke: black;
+	stroke-opacity: 0.6;
+}
+
+.emstate2 .innerc {
+	fill: darkgray;
+	fill-opacity: 0.8;
+	stroke: black;
+}
+
+.emstate2 .outerc {
+	fill-opacity: 0.8;
+}
+
+.outerr {
+	stroke: black;
+	fill: white;
+	fill-opacity: 0.5;
+}
+
+.domline, 
+.domlined{
+	stroke: white;
+	stroke-width: 2px;
+	marker-end: url(#ahead);
+}
+
+/* EmBands.js */
+.embandout {
+	fill: none;
+	stroke-width: 1px;
+}
+
+.emband {
+	fill-opacity: 0.8;
+}
+
+/* EmTweets.js */
+.emtweets {
+	fill: steelblue;
+	fill-opacity: 0.4;
+}
+
+.emtweets:hover {
+	fill-opacity: 0.8;
+}
+
+/* EmTimeline.js */
+/*
+.focus .tweets {
+	fill: steelblue;
+	fill-opacity: 0.4;
+}
+*/
+
+.context .tweets {
+	fill: steelblue;
+	fill-opacity: 0.9;
+}
+
+.emline {
+	fill:none;
+	stroke:black;
+	stroke-width:2px;
+}
+
+.emcircle {
+	fill: white;
+	stroke: black;
+}
+
+.brush .extent {
+	stroke: gray;
+	fill-opacity: 0.125;
+	shape-rendering: crispEdges;
+}
+
+.selline {
+	stroke: #FF788A;
+	stroke-width: 2px;
+}
+
+.styleline line {
+	stroke: black;
+	stroke-opacity: 0.5;
+	stroke-width: 1px;
+}
+
+.styleline text {
+	font-family: sans-serif;
+	font-size: 11px;
+}
+
+.hovline {
+	stroke: #FF788A;
+	stroke-width: 1px;
+}
+
+.hovtime {
+	text-anchor: middle;
+	font-family: sans-serif;
+	font-size: 11px;
+}
+
+.twcircle,
+.tpcircle.highlight {
+	fill: #FFCC99;
+	fill-opacity: 0.9;
+	stroke: black;
+}
+
+
+/* PADplot.js */
+.padpoint {
+	fill-opacity: 0.7;
+}
+
+.padpoint.select,
+.padpoint.highlight,
+.padpoint:hover {
+	stroke: black;
+	stroke-width: 2px;
+}
+
+.padpoint.dehighlight {
+	opacity: 0.5;
+}
+
+.padlabel {
+	font-family: sans-serif;
+	font-size: 12px;
+	stroke: none;
+	fill: black;
+	fill-opacity: 1;
+}
+
+/* TweetsView.js */
+.textbox {
+	border-top: 1px solid steelblue;
+	border-bottom: 1px solid steelblue;
+	margin: 2px auto;
+	width: 580px;
+}
+
+.textbox:hover,
+.textbox.highlight {
+	background: #FFCC99;
+}
+
+.textbox.select {
+	border-radius: 3px;
+	border: 2px solid black;
+}
+
+.textbox p {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 12px;
+	text-align: left;
+	padding: 2px 4px;
+	margin: 0px;
+}
+
+.textbox .timep {
+	font-style: italic;
+	font-family: sans-serif;
+}
+
+/* all axes */
+.axis path, .axis line {
+	fill: none;
+	stroke: black;
+	stroke-width: 1px;
+	shape-rendering: crispEdges;
+}
+
+.axis text,
+.axislabel {
+	font-family: sans-serif;
+	font-size: 11px;
+}
+
+
+.contextarea {
+	fill: #B5CDE1;
+}
+

@@ -1,46 +1,27 @@
-<!DOCTYPE html>
-<meta charset="utf-8">
-<style>
-body { font-family: Arial;}
+var svg2 = d3.select("#scatter"),
+    margin = {top: 10, right: 10, bottom: 10, left: 10},
+    widthscatter = +svg2.attr("width"),
+    heightscatter = +svg2.attr("height"),
+    domainwidth = widthscatter - margin.left - margin.right,
+    domainheight = heightscatter - margin.top - margin.bottom;
   
-.axis, .axis path {
-  fill: none;
-  stroke: #ACB849;
-}
-text {
-  stroke: none;
-  fill: #666666;
-}
-</style>
-<body>
-  <svg id="scatter" width="500" height="500"></svg>
-  
-<script src="https://d3js.org/d3.v4.min.js"></script>
-  
-<script>
-var svg = d3.select("#scatter"),
-    margin = {top: 20, right: 20, bottom: 30, left: 50},
-    width = +svg.attr("width"),
-    height = +svg.attr("height"),
-    domainwidth = width - margin.left - margin.right,
-    domainheight = height - margin.top - margin.bottom;
-  
-var x = d3.scaleLinear()
+var xscatter = d3.scaleLinear()
     .domain([0,1])
     .range([0, domainwidth]);
-var y = d3.scaleLinear()
+
+var yscatter = d3.scaleLinear()
     .domain([0,1])
     .range([domainheight, 0]);
   
-var g = svg.append("g")
+var gscatter = svg2.append("g")
 		.attr("transform", "translate(" + margin.top + "," + margin.top + ")");
   
-g.append("rect")
-    .attr("width", width - margin.left - margin.right)
-    .attr("height", height - margin.top - margin.bottom)
+gscatter.append("rect")
+    .attr("width", widthscatter - margin.left - margin.right)
+    .attr("height", heightscatter - margin.top - margin.bottom)
     .attr("fill", "#F6F6F6");
 
-var g2 = svg.append("g");
+var g2scatter = svg2.append("g");
 
 
 
@@ -54,7 +35,7 @@ var color = d3.scaleThreshold()
 var arc = d3.arc()
       .innerRadius(0)
       .outerRadius(function(d){
-        console.log("d dr :", d);
+        //console.log("d dr :", d);
         return 10;
       });
       
@@ -63,19 +44,19 @@ var pie = d3.pie()
       .value(function(d) { return d; });
       
 
-d3.json("data.json", function(error, data) {
+d3.json("datascatter.json", function(error, datascatter) {
   if (error) throw error;
 
-  data.forEach(function(d) {
+  datascatter.forEach(function(d) {
       d.value2 = +d.value2;
       d.value = +d.value;
   });
 
-  var points = g2.selectAll("g")
-    .data(data)
+  var points = g2scatter.selectAll("g")
+    .data(datascatter)
     .enter()
     .append("g")
-    .attr("transform",function(d) { return "translate("+x(d.value2)+","+y(d.value)+")"; })
+    .attr("transform",function(d) { return "translate("+xscatter(d.value2)+","+yscatter(d.value)+")"; })
     .attr("id", function (d,i) { return "chart"+i; })
     .append("g").attr("class","pies");
   
@@ -107,16 +88,13 @@ d3.json("data.json", function(error, data) {
       
   
 
-  g.append("g")
+  gscatter.append("g")
       .attr("class", "x axis")
-      .attr("transform", "translate(0," + y.range()[0] / 2 + ")")
-      .call(d3.axisBottom(x).ticks(5));
+      .attr("transform", "translate(0," + yscatter.range()[0] / 2 + ")")
+      .call(d3.axisBottom(xscatter).ticks(5));
 
-  g.append("g")
+  gscatter.append("g")
       .attr("class", "y axis")
-      .attr("transform", "translate(" + x.range()[1] / 2 + ", 0)")
-      .call(d3.axisLeft(y).ticks(5));
+      .attr("transform", "translate(" + xscatter.range()[1] / 2 + ", 0)")
+      .call(d3.axisLeft(yscatter).ticks(5));
 });
-
-</script>
-</body>
