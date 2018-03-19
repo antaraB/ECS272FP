@@ -79,9 +79,37 @@ d3.json("@BarackObama_scatter.json", function(error, datascatter) {
     .on("mouseover",function(d){
       //console.log("Points being hovered ", d);
       d3.select(this).attr("stroke","black")
+
+      divtooltip.transition()
+                .duration(500)  
+                .style("opacity", 0);
+            divtooltip.transition()
+                .duration(200)  
+                //.style("display", "block")
+                .style("visibility", "visible")
+                .style("opacity", .9);
+                var html;   
+                //console.log("LENGHTH",d);
+                var sum = 0;
+
+                    html = '<p class="header">Grant total number of tweets for all companies : <span class="clickstylebubble">' + 'some ' + '</p>';
+
+
+               
+                html = html + '<h3></h3>'
+
+            divtooltip .html(html) 
+
+                .style("left", (d3.event.pageX) + "px")          
+                .style("top", (d3.event.pageY - 28) + "px");
+
     })
     .on("mouseout", function(d){
       d3.select(this).attr("stroke","none");
+      divtooltip.transition()        
+                .duration(500)   
+                .style("visibility", "hidden")   
+                .style("opacity", 0);
     });
   
   
