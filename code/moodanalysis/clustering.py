@@ -75,7 +75,8 @@ parser.add_argument('-v','--verbose', action='store_true', help=" Will print val
 parser.add_argument('-vt','--valence', default=1.5, help=" Value for valence threshold. Default is 1.5 ")
 parser.add_argument('-at','--arousal', default=2.0, help=" Value for valence threshold. Default is 2.7 ")
 parser.add_argument('-dt','--dominance', default=2.3, help=" Value for valence threshold. Default is 2 ")
-parser.add_argument('-y','--year', default=2017, help=" Filter for this year (default 2017)")
+parser.add_argument('-yb','--yearbegin', default=2017, help=" Filter for this year (default 2017)")
+parser.add_argument('-ye','--yearend', default=2017, help=" Filter for this year (default 2017)")
 parser.add_argument('-m','--month', default=-1, help=" Filter FROM this month")
 
 args=parser.parse_args()
@@ -86,7 +87,8 @@ to_print=args.verbose
 vt=float(args.valence)
 at=float(args.arousal)
 dt=float(args.dominance)
-filteryear=int(args.year)
+filteryearbegin=int(args.yearbegin)
+filteryearend=int(args.yearend)
 filtermonth=int(args.month)
 
 if to_print:
@@ -148,8 +150,8 @@ else :
 for row in data:
 	tweetid=row[0]
 	tweetdate=row[1]
-	
-	if not datetime.strptime(tweetdate,dateformat).year==filteryear:
+	year=datetime.strptime(tweetdate,dateformat).year
+	if not year<=filteryearend and year>=filteryearbegin:
 		if to_print:
 			print "{} is skipped".format(tweetdate)
 		continue
@@ -202,7 +204,7 @@ for row in data:
 			if to_print:
 				print "{} added to cluster ".format(tweetdate)
 		# if cluster length is too small, add on to it
-		elif len(cluster['tweets'])<10 :
+		elif len(cluster['tweets'])<3 :
 			cluster=addtocluster(cluster, matrix, tweetid, tweetdate)
 			if to_print:
 				print "{} added to cluster ".format(tweetdate)
