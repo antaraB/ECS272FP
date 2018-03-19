@@ -327,7 +327,7 @@
       .attr("r", 35)
       .attr("cx", function(d) { return x(d.startdate); })
       .attr("cy", function(d) { return y(d.vad_score[0])+height/2; })
-      .attr("stroke", "black")
+      .attr("stroke", "none")
       .attr("fill", "none");
 
 
@@ -343,8 +343,8 @@
       .attr('cx', function (d) { return x(d.cx) + d.x - 75/2; })
       .attr('cy', function (d) { return y(d.cy) + d.y - 75/2 +height/2; })
       .attr('r', function (d) { return d.r; })
-      .style("fill", function(d) { if(d.depth == 0) return "red"; else return "green"; })
-      .style("opacity", function(d) { if(d.depth == 0) return 10; else return 20; })
+      .style("fill", function(d) { if(d.depth == 0) return "white"; else return emotioncolors[emotions[d.em_index]]; })
+      .style("opacity", function(d) { if(d.depth == 0) return 0; else return 20; })
       .on("mouseover", function(d) {
         // console.log("before mouse hover" ,d);
         if(d.depth == 1){
@@ -355,19 +355,15 @@
         .style("opacity", 0);
         divtooltip.transition()
         .duration(200)  
-                //.style("display", "block")
-                .style("visibility", "visible")
-                .style("opacity", .9);
-                var html='';   
-                //console.log("LENGHTH",d);
-                var sum = 0;
-                // console.log("index" ,d.em_index)
-                console.log('sum = ',);
-                html='<p><em>'+keys[d.em_index]+'</em></p><p><strong>valence</strong> ' + Number(d.detail_v[d.em_index]/d.detail_v.reduce(function(a,b){return a+b;},0)).toFixed(2) + '</p> <p><strong>arousal</strong> ' + Number(d.detail_a[d.em_index]/d.detail_a.reduce(function(a,b){return a+b;},0)).toFixed(2) + '</p> <p><strong>dominance</strong> ' + Number(d.detail_d[d.em_index]/d.detail_d.reduce(function(a,b){return a+b;},0)).toFixed(2) + '</p> <p><strong>strength</strong> ' +Number(d.strength).toFixed(2) + '%';
-                html = html + '<h3></h3>'
-                divtooltip .html(html) 
-                .style("left", (d3.event.pageX) + "px")          
-                .style("top", (d3.event.pageY - 28) + "px");
+        .style("visibility", "visible")
+        .style("opacity", .9);
+        var html='';   
+        html='<p><em>'+keys[d.em_index]+'</em></p><p><strong>valence</strong> ' + Number(d.detail_v[d.em_index]/d.detail_v.reduce(function(a,b){return a+b;},0)).toFixed(2) + '</p> <p><strong>arousal</strong> ' + Number(d.detail_a[d.em_index]/d.detail_a.reduce(function(a,b){return a+b;},0)).toFixed(2) + '</p> <p><strong>dominance</strong> ' + Number(d.detail_d[d.em_index]/d.detail_d.reduce(function(a,b){return a+b;},0)).toFixed(2) + '</p> <p><strong>strength</strong> ' +Number(d.strength).toFixed(2) + '%';
+        html = html + '<h3></h3>'
+        divtooltip .html(html) 
+        // .style("fill", function(d){console.log("fill",d); return emotioncolors[d.em_index];})
+        .style("left", (d3.event.pageX) + "px")          
+        .style("top", (d3.event.pageY - 28) + "px");
 
         }
         
