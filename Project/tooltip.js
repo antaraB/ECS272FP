@@ -1,7 +1,9 @@
 var legend = d3.select('#legend');
 
+var selectedFilename = "@BarackObama";
+
 var emotions = [ "anger", "anticipation", "disgust", "fear", "joy", "sadness", "surprise", "trust" ];
-emotioncolors = {
+var emotioncolors = {
         joy: "rgb(250,219,77)",
         trust: "rgb(153,204,51)",
         fear: "rgb(53,164,80)",
@@ -32,3 +34,25 @@ eachlegend.append("text").attr("x", function(f, e) {
     }).text(function(e) {
         return e
     })
+
+
+var dropdown = d3.select("#userid_text");
+
+var options = ["@BarackObama", "@Cristiano", "@katyperry", "@realDonaldTrump"];
+
+var select = d3.select("#userid_text")
+  	.attr('class','select')
+    .on('change',onchange)
+
+var options = select
+  .selectAll('option')
+	.data(options).enter()
+	.append('option')
+		.text(function (d) { return d; });
+
+function onchange() {
+	selectValue = d3.select('select').property('value')
+	console.log("Selected baes : ", selectValue);
+	selectedFilename = selectValue;
+	//getdataproject();
+};

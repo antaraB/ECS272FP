@@ -3,7 +3,7 @@ var parseDate = d3.timeParse('%Y-%m-%d %H:%M:%S');
 
 function getRawTweetData(clusterId){
 
-    d3.json("@BarackObama_scatter.json", function(error, datascatter) {
+    d3.json(selectedFilename + "_scatter.json", function(error, datascatter) {
         if (error) throw error;
         var rawtweets = datascatter[clusterId];
         var  i, txt = "";
