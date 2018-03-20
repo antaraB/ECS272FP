@@ -219,10 +219,10 @@ body {
 	width: 580px;
 }
 
-.textbox:hover,
+/*.textbox:hover,
 .textbox.highlight {
 	background: #FFCC99;
-}
+}*/
 
 .textbox.select {
 	border-radius: 3px;

@@ -21,16 +21,41 @@ function getRawTweetData(clusterId){
                     return o
                 }
             })
-
-            txt += "<div class=\"textbox\" border='1'>"
+            //console.log("rawtweets[i] : ", rawtweets[i]);
+            txt += "<div class=\"textbox\" id=\"textbox-"+ rawtweets[i].tweetid +"\" border='1'>"
             txt += "<p>" + some + "</p>";
             txt += "<p class=\"timep\">" + parseDate(rawtweets[i].tweetdate) + "</p>";
             txt += "</div>"   
         }
         document.getElementById("tweets_box").innerHTML = txt;
+
+        var element = d3.select("#tweets_box").selectAll(".textbox")
+        .on("mouseover",function(){
+            var curr = d3.select(this).style("background","#FFCC99"); 
+
+            var id = this.id.split("-");
+
+            onRawTweetHover(id[1]);    
+        })
+        .on("mouseout",function(d){
+            d3.select(this).style("background","none");  
+
+            var id = this.id.split("-");
+            onRawTweetNotHover(id[1]);             
+        });
+
     });
 };
 
+function onCircleHover(tweetid){
+    var element = d3.select("#tweets_box").select("#textbox-" + tweetid);
+    element.dispatch("mouseover");
+}
+
+function onCircleNotHover(tweetid){
+    var element = d3.select("#tweets_box").select("#textbox-" + tweetid);
+    element.dispatch("mouseout");
+}
 
 
 

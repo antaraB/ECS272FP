@@ -75,8 +75,9 @@ d3.json(selectedFilename + "_scatter.json", function(error, datascatter) {
     .enter()
     .append("g")
     .attr("transform",function(d) { return "translate("+xscatter(d.xvalue)+","+yscatter(d.yvalue)+")"; })
-    .attr("id", function (d,i) { return "chart"+i; })
+    .attr("id", function (d,i) { return "chart-"+d.tweetID; })
     .append("g").attr("class","pies")
+    .attr("id", function (d,i) { return "pies-"+d.tweetID; })
     .on("mouseover",function(d){
       //console.log("Points being hovered ", d);
       d3.select(this).attr("stroke","black")
@@ -101,9 +102,13 @@ d3.json(selectedFilename + "_scatter.json", function(error, datascatter) {
           .style("left", (d3.event.pageX) + "px")          
           .style("top", (d3.event.pageY - 28) + "px");
 
+          onCircleHover(d.tweetID);
+
     })
     .on("mouseout", function(d){
       d3.select(this).attr("stroke","none");
+
+      onCircleNotHover(d.tweetID);
 
       divtooltip.transition()        
       .duration(500)   
@@ -150,4 +155,12 @@ d3.json(selectedFilename + "_scatter.json", function(error, datascatter) {
       .attr("transform", "translate(" + xscatter.range()[1] / 2 + ", 0)")
       .call(d3.axisLeft(yscatter).ticks(5));
 });
+}
+
+function onRawTweetHover(tweetid){
+  var element = d3.selectAll("#pies-" + tweetid).attr("stroke","black");
+}
+
+function onRawTweetNotHover(tweetid){
+  var element = d3.selectAll("#pies-" + tweetid).attr("stroke","none");
 }
