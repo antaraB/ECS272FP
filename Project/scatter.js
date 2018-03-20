@@ -99,7 +99,7 @@ d3.json(selectedFilename + "_scatter.json", function(error, datascatter) {
       //html = html + '<h3></h3>';
 
       divtooltip .html(html) 
-          .style("left", (d3.event.pageX) + "px")          
+          .style("left", (d3.event.pageX) + 30 + "px")          
           .style("top", (d3.event.pageY - 28) + "px");
 
           onCircleHover(d.tweetID);

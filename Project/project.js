@@ -134,8 +134,8 @@
       //console.log("Mouse hovering on rect");
 
       divtooltip.html(drawtagcloud(selectedFilename,ci))
-                .style("left", (d3.event.pageX) + "px")          
-                .style("top", (d3.event.pageY - 28) + "px");
+                .style("left", (d3.event.pageX) + 50 + "px")          
+                .style("top", (d3.event.pageY + 30) + "px");
                 
       divtooltip.transition()
       .duration(500)  
@@ -367,7 +367,7 @@
         htmltext = htmltext + '<h3></h3>'
         divtooltip .html(htmltext) 
         // .style("fill", function(d){console.log("fill",d); return emotioncolors[d.em_index];})
-        .style("left", (d3.event.pageX) + "px")          
+        .style("left", (d3.event.pageX) + 50 + "px")          
         .style("top", (d3.event.pageY - 28) + "px");
 
         }
