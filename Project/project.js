@@ -212,15 +212,10 @@
       .attr("opacity",0.7)
       .attr("fill", function(d) {
         return emotioncolors[m]; 
-        /*if(m == "anger") return "green"; 
-        else if(m == "anticipation") return "red";
-        else if(m == "disgust") return "yellow";
-        else if(m == "fear") return "orange";
-        else if(m == "joy") return "purple";
-        else if(m == "sadness") return "grey";
-        else if(m == "surprise") return "pink";
-        else if(m == "trust") return "brown";
-        return "black";*/
+      }).on("mouseover", function(d){
+        d3.selectAll(".embandrect-" + m).selectAll(".emtweets" + m).attr("opacity",1)
+      }).on("mouseout", function(d){
+        d3.selectAll(".embandrect-" + m).selectAll(".emtweets" + m).attr("opacity",0.7)
       });
     })
 
