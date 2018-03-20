@@ -1,7 +1,7 @@
   // Init variables
   var svg = d3.select('#emviz_canvas');
-  var margin = {top: 20, right: 20, bottom: 110, left: 40};
-  var margin2 = {top: 430, right: 20, bottom: 30, left: 40};
+  var margin = {top: 20, right: 40, bottom: 110, left: 40};
+  var margin2 = {top: 430, right: 40, bottom: 30, left: 40};
   var width = +svg.attr('width') - margin.left - margin.right;
   var height = +svg.attr('height') - margin.top - margin.bottom;
   var height2 = +svg.attr('height') - margin2.top - margin2.bottom;
@@ -433,7 +433,7 @@
   focus.append("text").attr("class", "hovtime").attr("y", 262 - 10).attr("visibility", "hidden");
 
   focus.append("text").attr("class", "y axislabel").attr("x", 8).attr("y", 8).text("Valence");
-  focus.append("text").attr("class", "yt axislabel").attr("x", 1150 - 60).attr("y", 8).text("Tweets");
+  focus.append("text").attr("class", "yt axislabel").attr("x", 1150 - 70).attr("y", 8).text("Tweets");
 
 
     // Append x axis to focus
