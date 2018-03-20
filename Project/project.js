@@ -49,7 +49,7 @@
   .y1(function(d) { /*console.log(d); */return y(d[1]); });
 
   var stack = d3.stack()
-  .keys(["anger","anticipation","disgust","fear","joy","sadness","surprise","trust"])
+  .keys(["trust","surprise","sadness","joy","fear","disgust","anticipation","anger"])
   .order(d3.stackOrderNone)
     //.offset(d3.stackOffsetExpand);
     //.offset(d3.stackOffsetDiverging);
@@ -92,7 +92,7 @@
   //////////////////////////////////
   // Now we need to read the data //
   //////////////////////////////////
-  d3.csv(selectedFilename + '.csv', type, function(error, data) {
+  d3.csv('@BarackObama_new' + '.csv', type, function(error, data) {
     if (error) throw error;
     console.log("data ccalled for file name : ",selectedFilename);
     c = data;
@@ -251,9 +251,6 @@
       .size([75, 75])
       .padding(0)
 
-
-      dataa.sort(function(x, y){ return d3.ascending(x.size, y.size) })
-      if (error) throw error;
 
       const stratData = d3.stratify()(dataa),
       root = d3.hierarchy(stratData)
